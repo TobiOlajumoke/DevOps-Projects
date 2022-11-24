@@ -3,4 +3,4 @@
 ### Step 1
 - We need an AWS account and a virtual server with Ubuntu Server OS.
 
-![Alt text]()
+![Alt text](../../Documents/instance%20pic.jpg)
