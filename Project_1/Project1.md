@@ -15,7 +15,7 @@
 
     - We'll be needing our saved PEM key file change directory to download folder
 
-    ![gitbash](IMAGES/gitbash%20.png)
+    ![Alt text](Images/gitbash%20.png)
 
     - Run this command to ensure your key is not publicly viewable.
 
