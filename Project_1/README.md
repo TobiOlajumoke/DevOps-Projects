@@ -5,7 +5,7 @@
 - launch a new EC2 instance of t2.micro family with Ubuntu Server 20.04 LTS
 - Private key (.PEM file) should be saved securely and spin up the instance
 
-![Ubuntu Instance](IMAGES/instance%20pic.png)
+![Ubuntu Instance](/Project_1/IMAGES/instance%20pic.png)
 
 - Connecting to EC2 terminal
   - Using the terminal on MAC/Linux
