@@ -1,4 +1,4 @@
-# WEB STACK IMPLEMENTATION (LAMP STACK) IN AWS
+# WEB STACK IMPLEMENTATION (LAMP STACK)
 ## LAMP (Linux, Apache, MySQL, PHP or Python, or Perl)
 ### Setup our instance
 - We need an AWS account 
@@ -308,4 +308,5 @@ After checking the relevant information about your PHP server through that page,
 
 You can always recreate this page if you need to access the information again later.
 
-## CIAO
+## CIAO!
+ 
