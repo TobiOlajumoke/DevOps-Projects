@@ -15,20 +15,18 @@
 
 
     - We'll be needing our saved PEM key file change directory to download folder
-
-    ![gitbash](/Project_1/IMAGES/gitbash%20.png)
+![Alt text](Images/cd%20downloads.png)
+    
 
     - Run this command to ensure your key is not publicly viewable.
 
 `chmod 400 <your-PEM-file-name>.pem`
 
-![chmod](/Project_1/IMAGES/chmod.png)
-
 - I'll be using the ssh protocol to connect my local terminal to my EC2 server
 
 `ssh -i <private-key-name>. pem ubuntu@<Public-IP-address>`
 
-![ssh_connect](/Project_1/IMAGES/sshconnect.png)
+![Alt text](Images/ssh%20zazapem.png)
 
  - Type `yes` to connect
 
