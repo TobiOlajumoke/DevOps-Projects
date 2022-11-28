@@ -30,13 +30,7 @@
 
  - Type `yes` to connect
 
-      ![yes_text](/Project_1/IMAGES/YES.png)
-
-    - Now we are connected to our instance well done🎉.
-![instace_connect](/Project_1//IMAGES/connect%20to%20instance.png)
-
-We have created our Linux Server in the Cloud and our set up looks like this now: (we are the client)
-![diagram](/Project_1/IMAGES/Connected%20diagram.png)
+Now we are connected to our instance well done🎉.
 
 ## Step 1  Installing the Nginx Web Server
 
