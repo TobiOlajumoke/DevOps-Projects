@@ -334,5 +334,3 @@ You should see a page like this, showing the content you’ve inserted in your t
 
 Congratulations 🎉 that means your PHP environment is ready to connect and interact with your MySQL server.
 
-
-
