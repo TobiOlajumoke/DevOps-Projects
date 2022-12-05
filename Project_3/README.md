@@ -1,5 +1,5 @@
 # SIMPLE TO-DO APPLICATION ON MERN WEB STACK
-
+![Alt text](../../../../../../C:/Users/Zabuza/Desktop/DevOps-Projects/Project_1/Images/bash%20rubbish.png)
 ## Step 1
 In order to complete this project, you will need an AWS account and a virtual server with Ubuntu Server OS.
 When you create your EC2 Instances, you can add Tag "Name" to it with a value that corresponds to a current project you are working on – it will be reflected in the name of the EC2 Instance. Like this:
@@ -343,3 +343,75 @@ delete existing content in the file, and update it with the entire code below:
                 console.log(`Server running on port ${port}`)
                 });
 
+
+Using environment variables to store information is considered more secure and best practice to separate configuration and secret data from the application, instead of writing connection strings directly inside the index.js application file.
+
+- Start your server using the command:
+`node index.js`
+
+We will see a message ‘Database connected successfully’
+![Alt text](Image/Node%20connect.png)
+
+This means we have our backend configured. Now we are going to test it.
+
+So far we have written the backend part of our To-Do application, and configured a database, but we do not have a frontend UI yet. We need ReactJS code to achieve that. But during development, we will need a way to test our code using RESTful API. Therefore, we will need to make use of some API development client to test our code.
+- In this project, we will use Postman to test our API.
+Click [Install Postman](https://www.getpostman.com/downloads/) to download and install postman on your machine.
+Click HERE to learn how perform [CRUD operations](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) on Postman
+
+ - make sure your set header key `Content-Type as application/json`
+![Alt text](Image/Postman%201.png)
+
+- Create a GET request to your API on `http://<PublicIP-or-PublicDNS>:5000/api/todos`. This request retrieves all existing records from out To-do application (backend requests these records from the database and sends it us back as a response to GET request).
+
+![Alt text](Image/POST%20and%20GET.png)
+
+-  DELETE request to delete a task from out To-Do list.
+
+![Alt text](Image/Postman%20DELETE.png)
+
+By now you have tested backend part of our To-Do application and have made sure that it supports all three operations we wanted:
+        Display a list of tasks – HTTP GET request
+        Add a new task to the list – HTTP POST request
+        Delete an existing task from the list – HTTP DELETE request
+We have successfully created our Backend, now let go create the Frontend.
+
+
+
+## Step 6 – Frontend creation
+
+we will use the create-react-app command to scaffold our app.
+- In the same root directory as your backend code, which is the Todo directory, run:
+ `npx create-react-app client`
+This will create a new folder in your Todo directory called client, where you will add all the react code.
+
+Running a React App
+- Before testing the react app, there are some dependencies that need to be installed.
+  - Install concurrently. It is used to run more than one command simultaneously from the same terminal window.
+    `npm install concurrently --save-dev`
+  - Install nodemon. It is used to run and monitor the server. If there is any change in the server code, nodemon will restart it automatically and load the new changes.
+    `npm install nodemon --save-dev`
+In Todo folder open the package.json file. 
+`cd Todo`
+`nano package.json`
+
+Change the highlighted part of the below screenshot and replace with the code below.
+![Alt text](Image/edit%20package%20json.png)
+
+replace with:
+
+    "scripts": {
+    "start": "node index.js",
+    "start-watch": "nodemon index.js",
+    "dev": "concurrently \"npm run start-watch\" \"cd client && npm start\""
+    },
+
+![Alt text](Image/New%20edited%20package%20json.png)
+
+- Configure Proxy in package.json
+  - Change directory to ‘client’
+  `cd client`
+  - Open the package.json file
+  `nano package.json`
+- Add the key value pair in the package.json file
+  `"proxy": "http://localhost:5000"`
