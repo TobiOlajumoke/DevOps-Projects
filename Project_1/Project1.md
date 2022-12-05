@@ -1,4 +1,5 @@
 # WEB STACK IMPLEMENTATION (LAMP STACK)
+
 ## LAMP (Linux, Apache, MySQL, PHP or Python, or Perl)
 ### Setup our instance
 - We need an AWS account 
@@ -290,9 +291,9 @@ At this point, our LAMP stack is completely installed and fully operational.
 
 - This will open a blank file. Add the following text, which is valid PHP code, inside the file:
 
-            <?php
+        <?php
 
-            phpinfo();
+        phpinfo();
 
 ![Alt text](Images/php%20nano.png)
 
