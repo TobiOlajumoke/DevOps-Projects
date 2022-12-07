@@ -484,4 +484,4 @@ This is how your WebBook Register Application will look in the browser:
 
 ![Alt text](Image/STEP_2.5.png)
 
-*Congratualtions mate you did it* 🍻
+*Congratulaions mate you did it* 🍻
