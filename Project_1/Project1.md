@@ -309,5 +309,8 @@ After checking the relevant information about your PHP server through that page,
 
 You can always recreate this page if you need to access the information again later.
 
+
+
+## Now terminate your instance and any other resources to avoid additional charges
 ## CIAO!
  
