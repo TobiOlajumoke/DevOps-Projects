@@ -798,3 +798,4 @@ Assuming no errors when saving all these files, our To-Do app should be ready an
 ![Alt text](Image/we%20made%20it.png)
 
 
+## Now terminate your instance and any other resources to avoid additional charges
