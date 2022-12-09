@@ -485,3 +485,6 @@ This is how your WebBook Register Application will look in the browser:
 ![Alt text](Image/STEP_2.5.png)
 
 *Congratulaions mate you did it* 🍻
+
+
+## Now terminate your instance and any other resources to avoid additional charges
