@@ -72,24 +72,7 @@ Server B name - `mysql client`
 ![Alt text](Images/P5S2.2%20mysql%20status.png)
 
 
-- On mysql client Linux Server install MySQL client software.
-
-`sudo apt update`
-
-- Then install the mysql-server package:
-
-`sudo apt install mysql-server`
-
-- Ensure that the server is running using the systemctl command:
-
-`sudo systemctl start mysql.service`
-
-`sudo systemctl status mysql.service`
-
-![Alt text](Images/P5S1.6.png)
-
-
-- Let's set a password for the root user, using mysql_native_password as default authentication method:
+- Let's set it up
 
  `sudo mysql`
 
@@ -165,9 +148,6 @@ This will give you the following output:
 `sudo systemctl status mysql.service`
 
 
-
-
-
 - You might need to configure MySQL server to allow connections from remote hosts.
 
 `sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf`
@@ -185,7 +165,18 @@ Replace ‘127.0.0.1’ to ‘0.0.0.0’ like this:
 Mysql client private ip address is used above instead of 0.0.0.0 for extra Security 
 
 
-- Save the above configurations and ssh into the mysql client instance 
+- Save the above configurations
+## Let's set up mysql client 
+
+- ssh into my sql client instance
+- On mysql client Linux Server install MySQL client software.
+
+`sudo apt update`
+`sudp apt ugrade`
+
+- Then install the mysql-client package:
+
+`sudo apt install mysql-client -y`
 
 - From mysql client instance connect remotely to mysql server Database using:
 
