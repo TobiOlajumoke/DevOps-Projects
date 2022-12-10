@@ -197,7 +197,7 @@ Mysql client private ip address is used above instead of 0.0.0.0 for extra Secur
 
 ![Alt text](Images/P5S3.4%20mysql%20client%20login%20and%20show%20DB.png)
 
-If you see the above image 🎉CONGRATULATIONS YOU DID IT  👍 
+If you see the above image 🎉CONGRATULATIONS YOU DID IT 👍 
 
 
 ## Ensure you terminate your instances when your done. Have a lovely day 🥂
