@@ -5,7 +5,6 @@
 2. An EC2 Linux Server as a web server (This is where you will install WordPress)
 3. An EC2 Linux server as a database (DB) server
 
-Our setup would look like this:
 ![Alt text](Images/3tier%20app.webp)
 
 We'll be using RedHat OS for this project
@@ -412,14 +411,13 @@ Verify if you can successfully execute `SHOW DATABASES;` command and see a list 
 
 ![Alt text](Images/Final%20piece%202.png)
 
-
+**If you see this message – it means your WordPress has successfully connected to your remote MySQL database**
 
 ![Alt text](Images/Final%20piece%203.png)
 
 
+
 Important: Do not forget to STOP your EC2 instances after completion of the project to avoid extra costs.
-
-
 
 You have learned how to configure Linux storage susbystem and have also deployed a full-scale Web Solution using WordPress CMS and MySQL RDBMS!
 
