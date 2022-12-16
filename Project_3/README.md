@@ -73,27 +73,28 @@ When you create your EC2 Instances, you can add Tag "Name" to it with a value th
 `nano index.js`
 Type the code below into it and save. Do not get overwhelmed by the code you see. For now, simply paste the code into the file.
 
-                const express = require('express');
-                require('dotenv').config();
-                
-                const app = express();
-                
-                const port = process.env.PORT || 5000;
-                
-                app.use((req, res, next) => {
-                res.header("Access-Control-Allow-Origin", "\*");
-                res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-                next();
-                });
-                
-                app.use((req, res, next) => {
-                res.send('Welcome to Express');
-                });
- 
-                app.listen(port, () => {
-                console.log(`Server running on port ${port}`)
-                });
+```
+const express = require('express');
+require('dotenv').config();
 
+const app = express();
+
+const port = process.env.PORT || 5000;
+
+app.use((req, res, next) => {
+res.header("Access-Control-Allow-Origin", "\*");
+res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+next();
+});
+
+app.use((req, res, next) => {
+res.send('Welcome to Express');
+});
+
+app.listen(port, () => {
+console.log(`Server running on port ${port}`)
+});
+```
 
 Notice that we have specified to use port 5000 in the code. This will be required later when we go on the browser.
 
@@ -172,24 +173,24 @@ On our web browser
 `nano api.js`
 
 Copy the code below into the nano editor :
+```
+const express = require ('express');
+const router = express.Router();
 
-            const express = require ('express');
-            const router = express.Router();
-            
-            router.get('/todos', (req, res, next) => {
-            
-            });
-            
-            router.post('/todos', (req, res, next) => {
-            
-            });
-            
-            router.delete('/todos/:id', (req, res, next) => {
-            
-            })
-            
-            module.exports = router;
+router.get('/todos', (req, res, next) => {
 
+});
+
+router.post('/todos', (req, res, next) => {
+
+});
+
+router.delete('/todos/:id', (req, res, next) => {
+
+})
+
+module.exports = router;
+```
 
 
 ## STEP 4 
@@ -208,23 +209,23 @@ since the app is going to make use of Mongodb which is a NoSQL database, we need
 `mkdir models && cd models && touch todo.js`
 
 paste this in the nano editor todo.js file:
+```
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-        const mongoose = require('mongoose');
-        const Schema = mongoose.Schema;
-        
-        //create schema for todo
-        const TodoSchema = new Schema({
-        action: {
-        type: String,
-        required: [true, 'The todo text field is required']
-        }
-        })
-        
-        //create model for todo
-        const Todo = mongoose.model('todo', TodoSchema);
-        
-        module.exports = Todo;
+//create schema for todo
+const TodoSchema = new Schema({
+action: {
+type: String,
+required: [true, 'The todo text field is required']
+}
+})
 
+//create model for todo
+const Todo = mongoose.model('todo', TodoSchema);
+
+module.exports = Todo;
+```
 
 - Now we need to update our routes from the file api.js in ‘routes’ directory to make use of the new model.
   `cd ~`
@@ -232,7 +233,8 @@ paste this in the nano editor todo.js file:
     `nano api.js`
   - delete the code inside and paste these code below into it then save and exit:
    
-   const express = require ('express');
+```
+const express = require ('express');
 const router = express.Router();
 const Todo = require('../models/todo');
  
@@ -263,7 +265,7 @@ Todo.findOneAndDelete({"_id": req.params.id})
 })
  
 module.exports = router;
-
+```
 
 
 ## STEP 5 MongoDB Database
@@ -305,45 +307,45 @@ In the index.js file, we specified process.env to access environment variables, 
 
 delete existing content in the file, and update it with the entire code below:
 
+```
+const express = require('express');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const routes = require('./routes/api');
+const path = require('path');
+require('dotenv').config();
 
-                const express = require('express');
-                const bodyParser = require('body-parser');
-                const mongoose = require('mongoose');
-                const routes = require('./routes/api');
-                const path = require('path');
-                require('dotenv').config();
-                
-                const app = express();
-                
-                const port = process.env.PORT || 5000;
-                
-                //connect to the database
-                mongoose.connect(process.env.DB, { useNewUrlParser: true, useUnifiedTopology: true })
-                .then(() => console.log(`Database connected successfully`))
-                .catch(err => console.log(err));
-                
-                //since mongoose promise is depreciated, we overide it with node's promise
-                mongoose.Promise = global.Promise;
-                
-                app.use((req, res, next) => {
-                res.header("Access-Control-Allow-Origin", "\*");
-                res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-                next();
-                });
-                
-                app.use(bodyParser.json());
-                
-                app.use('/api', routes);
-                
-                app.use((err, req, res, next) => {
-                console.log(err);
-                next();
-                });
-                
-                app.listen(port, () => {
-                console.log(`Server running on port ${port}`)
-                });
+const app = express();
 
+const port = process.env.PORT || 5000;
+
+//connect to the database
+mongoose.connect(process.env.DB, { useNewUrlParser: true, useUnifiedTopology: true })
+.then(() => console.log(`Database connected successfully`))
+.catch(err => console.log(err));
+
+//since mongoose promise is depreciated, we overide it with node's promise
+mongoose.Promise = global.Promise;
+
+app.use((req, res, next) => {
+res.header("Access-Control-Allow-Origin", "\*");
+res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+next();
+});
+
+app.use(bodyParser.json());
+
+app.use('/api', routes);
+
+app.use((err, req, res, next) => {
+console.log(err);
+next();
+});
+
+app.listen(port, () => {
+console.log(`Server running on port ${port}`)
+});
+```
 
 Using environment variables to store information is considered more secure and best practice to separate configuration and secret data from the application, instead of writing connection strings directly inside the index.js application file.
 
@@ -401,11 +403,11 @@ Change the highlighted part of the below screenshot and replace with the code be
 
 replace with:
 
-    "scripts": {
-    "start": "node index.js",
-    "start-watch": "nodemon index.js",
-    "dev": "concurrently \"npm run start-watch\" \"cd client && npm start\""
-    },
+"scripts": {
+"start": "node index.js",
+"start-watch": "nodemon index.js",
+"dev": "concurrently \"npm run start-watch\" \"cd client && npm start\""
+},
 
 ![Alt text](Image/New%20edited%20package%20json.png)
 
@@ -464,52 +466,52 @@ One of the advantages of react is that it makes use of components, which are reu
 `nano Input.js`
 
 - Copy and paste the following:
+```
+import React, { Component } from 'react';
+import axios from 'axios';
 
-          import React, { Component } from 'react';
-          import axios from 'axios';
-          
-          class Input extends Component {
-          
-          state = {
-          action: ""
-          }
-          
-          addTodo = () => {
-          const task = {action: this.state.action}
-          
-              if(task.action && task.action.length > 0){
-                axios.post('/api/todos', task)
-                  .then(res => {
-                    if(res.data){
-                      this.props.getTodos();
-                      this.setState({action: ""})
-                    }
-                  })
-                  .catch(err => console.log(err))
-              }else {
-                console.log('input field required')
-              }
-          
-          }
-          
-          handleChange = (e) => {
-          this.setState({
-          action: e.target.value
-          })
-          }
-          
-          render() {
-          let { action } = this.state;
-          return (
-          <div>
-          <input type="text" onChange={this.handleChange} value={action} />
-          <button onClick={this.addTodo}>add todo</button>
-          </div>
-          )
-          }
-          }
-          export default Input
+class Input extends Component {
 
+state = {
+action: ""
+}
+
+addTodo = () => {
+const task = {action: this.state.action}
+
+    if(task.action && task.action.length > 0){
+      axios.post('/api/todos', task)
+        .then(res => {
+          if(res.data){
+            this.props.getTodos();
+            this.setState({action: ""})
+          }
+        })
+        .catch(err => console.log(err))
+    }else {
+      console.log('input field required')
+    }
+
+}
+
+handleChange = (e) => {
+this.setState({
+action: e.target.value
+})
+}
+
+render() {
+let { action } = this.state;
+return (
+<div>
+<input type="text" onChange={this.handleChange} value={action} />
+<button onClick={this.addTodo}>add todo</button>
+</div>
+)
+}
+}
+export default Input
+```
 ![Alt text](Image/input.js%20paste.png)
  
 
@@ -535,94 +537,94 @@ Go to the ‘components’ directory
 `nano ListTodo.js`
 
 - Delete anything in the ListTodo.js then copy and paste the following code:
+```
+import React from 'react';
 
-        import React from 'react';
-        
-        const ListTodo = ({ todos, deleteTodo }) => {
-        
-        return (
-        <ul>
-        {
-        todos &&
-        todos.length > 0 ?
-        (
-        todos.map(todo => {
-        return (
-        <li key={todo._id} onClick={() => deleteTodo(todo._id)}>{todo.action}</li>
-        )
-        })
-        )
-        :
-        (
-        <li>No todo(s) left</li>
-        )
-        }
-        </ul>
-        )
-        }
-        
-        export default ListTodo
+const ListTodo = ({ todos, deleteTodo }) => {
 
+return (
+<ul>
+{
+todos &&
+todos.length > 0 ?
+(
+todos.map(todo => {
+return (
+<li key={todo._id} onClick={() => deleteTodo(todo._id)}>{todo.action}</li>
+)
+})
+)
+:
+(
+<li>No todo(s) left</li>
+)
+}
+</ul>
+)
+}
+
+export default ListTodo
+```
 ![Alt text](Image/listTODO.png)
 
 - Then delete everything in `nano Todo.js` file paste the following code:
+```
+import React, {Component} from 'react';
+import axios from 'axios';
 
-        import React, {Component} from 'react';
-        import axios from 'axios';
-        
-        import Input from './Input';
-        import ListTodo from './ListTodo';
-        
-        class Todo extends Component {
-        
-        state = {
-        todos: []
-        }
-        
-        componentDidMount(){
-        this.getTodos();
-        }
-        
-        getTodos = () => {
-        axios.get('/api/todos')
-        .then(res => {
+import Input from './Input';
+import ListTodo from './ListTodo';
+
+class Todo extends Component {
+
+state = {
+todos: []
+}
+
+componentDidMount(){
+this.getTodos();
+}
+
+getTodos = () => {
+axios.get('/api/todos')
+.then(res => {
+if(res.data){
+this.setState({
+todos: res.data
+})
+}
+})
+.catch(err => console.log(err))
+}
+
+deleteTodo = (id) => {
+
+    axios.delete(`/api/todos/${id}`)
+      .then(res => {
         if(res.data){
-        this.setState({
-        todos: res.data
-        })
+          this.getTodos()
         }
-        })
-        .catch(err => console.log(err))
-        }
-        
-        deleteTodo = (id) => {
-        
-            axios.delete(`/api/todos/${id}`)
-              .then(res => {
-                if(res.data){
-                  this.getTodos()
-                }
-              })
-              .catch(err => console.log(err))
-        
-        }
-        
-        render() {
-        let { todos } = this.state;
-        
-            return(
-              <div>
-                <h1>My Todo(s)</h1>
-                <Input getTodos={this.getTodos}/>
-                <ListTodo todos={todos} deleteTodo={this.deleteTodo}/>
-              </div>
-            )
-        
-        }
-        }
-        
-        export default Todo;
+      })
+      .catch(err => console.log(err))
 
+}
+
+render() {
+let { todos } = this.state;
+
+    return(
+      <div>
+        <h1>My Todo(s)</h1>
+        <Input getTodos={this.getTodos}/>
+        <ListTodo todos={todos} deleteTodo={this.deleteTodo}/>
+      </div>
+    )
+
+}
+}
+
+export default Todo;
+```
 ![Alt text](Image/Todojs.png)
 
 We need to make little adjustment to our react code. Delete the logo and adjust our App.js to look like this.
@@ -636,21 +638,21 @@ We need to make little adjustment to our react code. Delete the logo and adjust 
 `nano App.js`
 
 - Delete what is there then copy and paste the code below into it:
+```
+import React from 'react';
 
-        import React from 'react';
-        
-        import Todo from './components/Todo';
-        import './App.css';
-        
-        const App = () => {
-        return (
-        <div className="App">
-        <Todo />
-        </div>
-        );
-        }
-        
-        export default App;
+import Todo from './components/Todo';
+import './App.css';
+
+const App = () => {
+return (
+<div className="App">
+<Todo />
+</div>
+);
+}
+
+export default App;
 
 
 ![Alt text](Image/New%20App.js.png)
@@ -663,94 +665,94 @@ After pasting, exit the editor.
 
 - Delete what was there and then paste the following code into App.css:
 
-          .App {
-          text-align: center;
-          font-size: calc(10px + 2vmin);
-          width: 60%;
-          margin-left: auto;
-          margin-right: auto;
-          }
-          
-          input {
-          height: 40px;
-          width: 50%;
-          border: none;
-          border-bottom: 2px #101113 solid;
-          background: none;
-          font-size: 1.5rem;
-          color: #787a80;
-          }
-          
-          input:focus {
-          outline: none;
-          }
-          
-          button {
-          width: 25%;
-          height: 45px;
-          border: none;
-          margin-left: 10px;
-          font-size: 25px;
-          background: #101113;
-          border-radius: 5px;
-          color: #787a80;
-          cursor: pointer;
-          }
-          
-          button:focus {
-          outline: none;
-          }
-          
-          ul {
-          list-style: none;
-          text-align: left;
-          padding: 15px;
-          background: #171a1f;
-          border-radius: 5px;
-          }
-          
-          li {
-          padding: 15px;
-          font-size: 1.5rem;
-          margin-bottom: 15px;
-          background: #282c34;
-          border-radius: 5px;
-          overflow-wrap: break-word;
-          cursor: pointer;
-          }
-          
-          @media only screen and (min-width: 300px) {
-          .App {
-          width: 80%;
-          }
-          
-          input {
-          width: 100%
-          }
-          
-          button {
-          width: 100%;
-          margin-top: 15px;
-          margin-left: 0;
-          }
-          }
-          
-          @media only screen and (min-width: 640px) {
-          .App {
-          width: 60%;
-          }
-          
-          input {
-          width: 50%;
-          }
-          
-          button {
-          width: 30%;
-          margin-left: 10px;
-          margin-top: 0;
-          }
-          }
+.App {
+text-align: center;
+font-size: calc(10px + 2vmin);
+width: 60%;
+margin-left: auto;
+margin-right: auto;
+}
 
+input {
+height: 40px;
+width: 50%;
+border: none;
+border-bottom: 2px #101113 solid;
+background: none;
+font-size: 1.5rem;
+color: #787a80;
+}
+
+input:focus {
+outline: none;
+}
+
+button {
+width: 25%;
+height: 45px;
+border: none;
+margin-left: 10px;
+font-size: 25px;
+background: #101113;
+border-radius: 5px;
+color: #787a80;
+cursor: pointer;
+}
+
+button:focus {
+outline: none;
+}
+
+ul {
+list-style: none;
+text-align: left;
+padding: 15px;
+background: #171a1f;
+border-radius: 5px;
+}
+
+li {
+padding: 15px;
+font-size: 1.5rem;
+margin-bottom: 15px;
+background: #282c34;
+border-radius: 5px;
+overflow-wrap: break-word;
+cursor: pointer;
+}
+
+@media only screen and (min-width: 300px) {
+.App {
+width: 80%;
+}
+
+input {
+width: 100%
+}
+
+button {
+width: 100%;
+margin-top: 15px;
+margin-left: 0;
+}
+}
+
+@media only screen and (min-width: 640px) {
+.App {
+width: 60%;
+}
+
+input {
+width: 50%;
+}
+
+button {
+width: 30%;
+margin-left: 10px;
+margin-top: 0;
+}
+}
+```
 
 ![Alt text](Image/New%20App.css.png)
 
@@ -760,25 +762,25 @@ After pasting, exit the editor.
 `nano index.css`
 
 - Delete was there then copy and paste the code below:
+```
+body {
+margin: 0;
+padding: 0;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+sans-serif;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+box-sizing: border-box;
+background-color: #282c34;
+color: #787a80;
+}
 
-            body {
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-            "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-            sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            box-sizing: border-box;
-            background-color: #282c34;
-            color: #787a80;
-            }
-            
-            code {
-            font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-            monospace;
-            }
-
+code {
+font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+monospace;
+}
+```
 ![Alt text](Image/new%20index.css.png)
 
 - Go to the Todo directory
