@@ -203,9 +203,13 @@ respectively
 ![Alt text](Images/db%20terminal%20setup%203.png)
 
 - Use pvcreate utility to mark each of 3 disks as physical volumes (PVs) to be used by LVM
-        sudo pvcreate /dev/xvdf1
-        sudo pvcreate /dev/xvdg1
-        sudo pvcreate /dev/xvdh1
+
+```
+sudo pvcreate /dev/xvdf1
+sudo pvcreate /dev/xvdg1
+sudo pvcreate /dev/xvdh1
+```
+
 Verify that your Physical volume has been created successfully by running:
 
 `sudo pvs`
@@ -282,37 +286,41 @@ Verify that your VG has been created successfully by running:
 
 - To install PHP and its dependencies
 
-        sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-        sudo yum install yum-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm
-        sudo yum module list php
-        sudo yum module reset php
-        sudo yum module enable php:remi-7.4
-        sudo yum install php php-opcache php-gd php-curl php-mysqlnd
-        sudo systemctl start php-fpm
-        sudo systemctl enable php-fpm
-        setsebool -P httpd_execmem 1
+```
+sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+sudo yum install yum-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm
+sudo yum module list php
+sudo yum module reset php
+sudo yum module enable php:remi-7.4
+sudo yum install php php-opcache php-gd php-curl php-mysqlnd
+sudo systemctl start php-fpm
+sudo systemctl enable php-fpm
+setsebool -P httpd_execmem 1
+```
 
 - Restart Apache
 
 `sudo systemctl restart httpd`
  
 - Download wordpress and copy wordpress to var/www/html
- 
-        mkdir wordpress
-        cd   wordpress
-        sudo wget http://wordpress.org/latest.tar.gz
-        sudo tar xzvf latest.tar.gz
-        sudo rm -rf latest.tar.gz
-        sudo cp wordpress/wp-config-sample.php wordpress/wp-config.php
-        sudo cp -R wordpress /var/www/html/
- 
-- Configure SELinux Policies
- 
-        sudo chown -R apache:apache /var/www/html/wordpress
-        sudo chcon -t httpd_sys_rw_content_t /var/www/html/wordpress -R
-        sudo setsebool -P httpd_can_network_connect=1
-        sudo setsebool -P httpd_can_network_connect_db 1
 
+ ```
+mkdir wordpress
+cd   wordpress
+sudo wget http://wordpress.org/latest.tar.gz
+sudo tar xzvf latest.tar.gz
+sudo rm -rf latest.tar.gz
+sudo cp wordpress/wp-config-sample.php wordpress/wp-config.php
+sudo cp -R wordpress /var/www/html/
+ ```
+
+- Configure SELinux Policies
+ ```
+sudo chown -R apache:apache /var/www/html/wordpress
+sudo chcon -t httpd_sys_rw_content_t /var/www/html/wordpress -R
+sudo setsebool -P httpd_can_network_connect=1
+sudo setsebool -P httpd_can_network_connect_db 1
+```
 
 ## Step 4 — Install MySQL on your DB Server
 
@@ -320,10 +328,10 @@ Verify that your VG has been created successfully by running:
 `sudo yum install mysql-server`
 
 - Verify that the service is up and running by using `sudo systemctl status mysqld`, if it is not running, restart the service and enable it so it will be running even after reboot:
-
-    sudo systemctl restart mysqld
-    sudo systemctl enable mysqld
-
+```
+sudo systemctl restart mysqld
+sudo systemctl enable mysqld
+```
 - In the database server terminal 
   we'll do mysql secure installation
 
@@ -337,13 +345,14 @@ yes and enter till the end
 ## Step 5 — Configure DB to work with WordPress
 
 `sudo mysql`
-        CREATE DATABASE wordpress;
-        CREATE USER 'myuser'@'<Web-Server-Private-IP-Address>' IDENTIFIED BY 'put your password';
-        GRANT ALL ON wordpress.* TO 'myuser'@'<Web-Server-Private-IP-Address>';
-        FLUSH PRIVILEGES;
-        SHOW DATABASES;
-        exit
-
+```
+CREATE DATABASE wordpress;
+CREATE USER 'myuser'@'<Web-Server-Private-IP-Address>' IDENTIFIED BY 'put your password';
+GRANT ALL ON wordpress.* TO 'myuser'@'<Web-Server-Private-IP-Address>';
+FLUSH PRIVILEGES;
+SHOW DATABASES;
+exit
+```
 - Edit the bind address:
 
 `sudo vi /etc/my.cnf`
