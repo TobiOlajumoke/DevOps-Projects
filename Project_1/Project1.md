@@ -181,23 +181,23 @@ At this point, our LAMP stack is completely installed and fully operational.
 
 
   This will create a new blank file. Paste in the following configuration text:
+```
+<VirtualHost *:80>
 
-            <VirtualHost *:80>
+ServerName projectlamp
 
-            ServerName projectlamp
+ServerAlias www.projectlamp
 
-            ServerAlias www.projectlamp
+ServerAdmin webmaster@localhost
 
-            ServerAdmin webmaster@localhost
+DocumentRoot /var/www/projectlamp
 
-            DocumentRoot /var/www/projectlamp
+ErrorLog ${APACHE_LOG_DIR}/error.log
 
-            ErrorLog ${APACHE_LOG_DIR}/error.log
+CustomLog ${APACHE_LOG_DIR}/access.log combined
 
-            CustomLog ${APACHE_LOG_DIR}/access.log combined
-
-            </VirtualHost>
-      
+</VirtualHost>
+```     
 - right click and paste
 - press ctrl + x to exit
 - Type Yes and Enter
@@ -259,18 +259,20 @@ At this point, our LAMP stack is completely installed and fully operational.
   `sudo nano /etc/apache2/mods-enabled/dir.conf`
 
 - clear everythng and paste this in:
- 
-        <IfModule mod_dir.c>
 
-        #Change this:
+ ```
+<IfModule mod_dir.c>
 
-        #DirectoryIndex index.html index.cgi index.pl index.php index.xhtml index.htm
+#Change this:
 
-        #To this:
+#DirectoryIndex index.html index.cgi index.pl index.php index.xhtml index.htm
 
-        DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
+#To this:
 
-        </IfModule>
+DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
+
+</IfModule>
+```
 
 - press ctrl + x to exit
 - Type Yes and Enter
@@ -291,9 +293,11 @@ At this point, our LAMP stack is completely installed and fully operational.
 
 - This will open a blank file. Add the following text, which is valid PHP code, inside the file:
 
-        <?php
+```
+<?php
 
-        phpinfo();
+phpinfo();
+```
 
 ![Alt text](Images/php%20nano.png)
 
