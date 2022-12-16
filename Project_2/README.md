@@ -123,30 +123,31 @@ When using the Nginx web server, we can create server blocks (similar to virtual
 
 paste this:
 
-        #/etc/nginx/sites-available/projectLEMP
-        
-        server {
-            listen 80;
-            server_name projectLEMP www.projectLEMP;
-            root /var/www/projectLEMP;
-        
-            index index.html index.htm index.php;
-        
-            location / {
-                try_files $uri $uri/ =404;
-            }
-        
-            location ~ \.php$ {
-                include snippets/fastcgi-php.conf;
-                fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
-            }
-        
-            location ~ /\.ht {
-                deny all;
-            }
-        
-        }
+```
+#/etc/nginx/sites-available/projectLEMP
 
+server {
+    listen 80;
+    server_name projectLEMP www.projectLEMP;
+    root /var/www/projectLEMP;
+
+    index index.html index.htm index.php;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+
+}
+```
 
 When you’re done editing, save and close the file. If you’re using nano, you can do so by typing:
 CTRL+X and then y and ENTER to confirm.
@@ -198,8 +199,10 @@ Your LEMP stack is now fully configured. In the next step, we’ll create a PHP 
 
 Type or paste the following lines into the new file. This is valid PHP code that will return information about your server:
 
-            <?php
-            phpinfo();
+```
+<?php
+phpinfo();
+```
 
 ![Alt text](Images/nano%20php%20info.png)
 
@@ -266,11 +269,13 @@ This will give you the following output:
 
 - Now lets create a test table named todo_list. From the MySQL console, run the following statement:
 
-            CREATE TABLE example_database.todo_list (
-            mysql> 	item_id INT AUTO_INCREMENT,
-            mysql> 	content VARCHAR(255),
-            mysql> 	PRIMARY KEY(item_id)
-            mysql> );
+```
+CREATE TABLE example_database.todo_list (
+mysql> 	item_id INT AUTO_INCREMENT,
+mysql> 	content VARCHAR(255),
+mysql> 	PRIMARY KEY(item_id)
+mysql> );
+```
 
 ![Alt text](Images/mysql%20create%20table.png)
 
@@ -296,23 +301,25 @@ mysql> `exit`
 - The following PHP script connects to the MySQL database and queries for the content of the todo_list table, displays the results in a list. If there is a problem with the database connection, it will throw an exception.
 Copy this content into your todo_list.php script:
 
-            <?php
-            $user = "example_user";
-            $password = "PassWord.1";
-            $database = "example_database";
-            $table = "todo_list";
-            
-            try {
-            $db = new PDO("mysql:host=localhost;dbname=$database", $user, $password);
-            echo "<h2>TODO</h2><ol>";
-            foreach($db->query("SELECT content FROM $table") as $row) {
-                echo "<li>" . $row['content'] . "</li>";
-            }
-            echo "</ol>";
-            } catch (PDOException $e) {
-                print "Error!: " . $e->getMessage() . "<br/>";
-                die();
-            }
+```
+<?php
+$user = "example_user";
+$password = "PassWord.1";
+$database = "example_database";
+$table = "todo_list";
+
+try {
+$db = new PDO("mysql:host=localhost;dbname=$database", $user, $password);
+echo "<h2>TODO</h2><ol>";
+foreach($db->query("SELECT content FROM $table") as $row) {
+    echo "<li>" . $row['content'] . "</li>";
+}
+echo "</ol>";
+} catch (PDOException $e) {
+    print "Error!: " . $e->getMessage() . "<br/>";
+    die();
+}
+```
 
 ![Alt text](Images/lemp%20nano%20php%20config.png)
 
