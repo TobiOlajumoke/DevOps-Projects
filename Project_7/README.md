@@ -298,10 +298,11 @@ To make this change permanent – open following config file:
 
 
 11. Create in MySQL a new admin user with username: myuser and password: password:
-INSERT INTO 'users' ('id', 'username', ‘password’, ’email’, ‘user_type’, ‘status’) VALUES
+INSERT INTO 'users' ('id', 'username', 'password', 'email', 'user_type', 'status') VALUES
 -> (1, 'myuser', '5f4dcc3b5aa765d61d8327deb882cf99', 'user@mail.com', 'admin', '1');
 
 12. Open the website in your browser `http://<Web-Server-Public-IP-Address-or-Public-DNS-Name>/index.php` and make sure you can login into the website with admin admin.
 
+![Alt text](Images/p7%20fb.png)
 ![Alt text](Images/p7admin.png)
 
