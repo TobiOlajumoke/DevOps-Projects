@@ -26,9 +26,13 @@ It is important to know what storage solution is suitable for what use cases, fo
 ## Step 1 – Prepare NFS Server
 1. Spin up a new EC2 instance with RHEL Linux 9 Operating System.
 - Launch the instance and attach 3 volumes to it.
+
 ![Alt text](Images/p7%20rehl%209.png)
+
 ![Alt text](Images/p7%20nfs%20server.png)
+
 ![Alt text](Images/p7%20nfs%203%20volume%20created%20and%20attached.png)
+
 - ssh to the instance and let's begin to configure our nfs server 
 
 
