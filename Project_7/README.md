@@ -15,6 +15,7 @@ On the diagram below you can see a common pattern where several stateless Web Se
 ![Alt text](Images/nfs%20diagram.png)
 
 It is important to know what storage solution is suitable for what use cases, for this – you need to answer the following questions: 
+
 - what data will be stored? 
 - In what format? 
 - How this data will be accessed?
@@ -25,7 +26,7 @@ It is important to know what storage solution is suitable for what use cases, fo
 
 
 ## Step 1 – Prepare NFS Server
-1. Spin up a new EC2 instance with RHEL Linux 9 Operating System.
+- Spin up a new EC2 instance with RHEL Linux 9 Operating System.
 - Launch the instance and attach 3 volumes to it.
 
 ![Alt text](Images/p7%20rehl%209.png)
