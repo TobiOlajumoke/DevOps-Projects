@@ -6,3 +6,4 @@ When we access a website in the Internet we use an URL and we do not really know
 
 
 #STEP 1
+launch an ec2 instance
