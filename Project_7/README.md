@@ -317,8 +317,12 @@ INSERT INTO 'users' ('id', 'username', 'password', 'email', 'user_type', 'status
 ![Alt text](Images/p7admin.png)
 
 
-
-
+The main branch is the only way to release anything to production.
+The main branch should always be in a ready-to-release state.
+Protect the main branch with branch policies.
+Any changes to the main branch flow through pull requests only.
+Tag all releases in the main branch with Git tags.
+The feature branch:
 
 
 The main branch:
