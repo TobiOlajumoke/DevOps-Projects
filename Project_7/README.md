@@ -1,7 +1,7 @@
 ## LAMP stack with remote Database and NFS servers.
 
 In this project you will implement a solution that consists of following components:
-Infraa AWS
+Infrastructre AWS
 Webserver Linux: Red Hat Enterprise Linux 8
 Database Server: Ubuntu 20.04 + MySQL
 Storage Server: Red Hat Enterprise Linux 8 + NFS Server
@@ -316,3 +316,21 @@ INSERT INTO 'users' ('id', 'username', 'password', 'email', 'user_type', 'status
 ![Alt text](Images/p7%20fb.png)
 ![Alt text](Images/p7admin.png)
 
+
+
+
+
+
+The main branch:
+
+The main branch is the only way to release anything to production.
+The main branch should always be in a ready-to-release state.
+Protect the main branch with branch policies.
+Any changes to the main branch flow through pull requests only.
+Tag all releases in the main branch with Git tags.
+The feature branch:
+
+Use feature branches for all new features and bug fixes.
+Use feature flags to manage long-running feature branches.
+Changes from feature branches to the main only flow through pull requests.
+Name your feature to reflect its purpose.
