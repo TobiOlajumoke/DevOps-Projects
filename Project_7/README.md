@@ -338,3 +338,10 @@ Use feature branches for all new features and bug fixes.
 Use feature flags to manage long-running feature branches.
 Changes from feature branches to the main only flow through pull requests.
 Name your feature to reflect its purpose.
+
+
+
+
+sudo lvcreate -n apps-lv -L 7G webdata-vg
+sudo lvcreate -n logs-lv -L 7G webdata-vg
+sudo lvcreate -n opt-lv -L 7G webdata-vg
