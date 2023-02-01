@@ -316,32 +316,3 @@ INSERT INTO 'users' ('id', 'username', 'password', 'email', 'user_type', 'status
 ![Alt text](Images/p7%20fb.png)
 ![Alt text](Images/p7admin.png)
 
-
-The main branch is the only way to release anything to production.
-The main branch should always be in a ready-to-release state.
-Protect the main branch with branch policies.
-Any changes to the main branch flow through pull requests only.
-Tag all releases in the main branch with Git tags.
-The feature branch:
-
-
-The main branch:
-
-The main branch is the only way to release anything to production.
-The main branch should always be in a ready-to-release state.
-Protect the main branch with branch policies.
-Any changes to the main branch flow through pull requests only.
-Tag all releases in the main branch with Git tags.
-The feature branch:
-
-Use feature branches for all new features and bug fixes.
-Use feature flags to manage long-running feature branches.
-Changes from feature branches to the main only flow through pull requests.
-Name your feature to reflect its purpose.
-
-
-
-
-sudo lvcreate -n apps-lv -L 7G webdata-vg
-sudo lvcreate -n logs-lv -L 7G webdata-vg
-sudo lvcreate -n opt-lv -L 7G webdata-vg
