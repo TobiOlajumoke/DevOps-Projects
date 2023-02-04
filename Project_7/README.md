@@ -317,4 +317,5 @@ INSERT INTO 'users' ('id', 'username', 'password', 'email', 'user_type', 'status
 ![Alt text](Images/p7admin.png)
 
 
-## You did well cheers.
+
+We are up and running. 
