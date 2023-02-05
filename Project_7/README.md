@@ -195,7 +195,7 @@ sudo exportfs -arv
 
 - launch an Ubuntu 20.04
 
-- Install MySQL servers
+- Install MySQL server
 ```
 sudo apt -y update
 sudo apt install -y mysql
