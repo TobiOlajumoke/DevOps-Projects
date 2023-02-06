@@ -18,3 +18,6 @@ Deploy and configure an Apache Load Balancer for Tooling Website solution on a s
 # CONFIGURE APACHE AS A LOAD BALANCER
 - Configure Apache As A Load Balancer
    - Create an Ubuntu Server 20.04 EC2 instance and name it Project-8-apache-lb, so your EC2 list will look like this:
+
+
+   - Open TCP port 80 on Project-8-apache-lb by creating an Inbound Rule in the Security Group.
