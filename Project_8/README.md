@@ -16,3 +16,6 @@ Deploy and configure an Apache Load Balancer for Tooling Website solution on a s
 
 
    - Open TCP port 80 on Project-8-apache-lb by creating an Inbound Rule in the Security 
+
+
+dorcas ma kpa mi na
