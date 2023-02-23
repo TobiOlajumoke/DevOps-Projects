@@ -1,7 +1,6 @@
 # Welcome To My DevOps Projects
 
-![m2](https://i.pinimg.com/564x/3b/ab/88/3bab88ce05545425254eb998db56ec9e.jpg)
-
+![m2](https://i.pinimg.com/originals/47/fd/28/47fd2856377747c0f51b0adcf3050791.gif)
 
 1. [WEB STACK IMPLEMENTATION (LAMP STACK)](https://github.com/TobiOlajumoke/DevOps-Projects/blob/main/Project_1/Project1.md)
 2. [WEB STACK IMPLEMENTATION (LEMP STACK)](https://github.com/TobiOlajumoke/DevOps-Projects/tree/main/Project_2)
