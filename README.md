@@ -11,4 +11,3 @@
 6. [FULL-SCALE WEB SOLUTION USING WORDPRESS CMS AND MYSQL RDBMS](https://github.com/TobiOlajumoke/DevOps-Projects/tree/main/Project_6)
 7. [LAMP stack with remote Database and NFS servers](https://github.com/TobiOlajumoke/DevOps-Projects/tree/main/Project_7)
 8.[Configure an Apache Load Balancer for Tooling Website solution](https://github.com/TobiOlajumoke/DevOps-Projects/tree/main/Project_8)
-9.[ Continous Integration Pipeline For Tooling Website](https://github.com/TobiOlajumoke/DevOps-Projects/tree/main/Project_9)
