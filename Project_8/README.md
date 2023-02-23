@@ -106,8 +106,16 @@ Add 2 records into this file with the Local IP address and arbitrary name for bo
 Now you can update your LB config file with those names instead of IP addresses.
 BalancerMember http://Web1:80 loadfactor=5 timeout=1
 BalancerMember http://Web2:80 loadfactor=5 timeout=1
-You can try to curl your Web Servers from LB locally curl http://Web1 or curl http://Web2 – it shall work.
-Remember, this is only an internal configuration and it is also local to your LB server, these names will neither be ‘resolvable’ from other servers internally nor from the Internet.
+You can try to curl your Web Servers from LB locally `curl http://Web1` or `curl http://Web2` – it shall work.
+
+![Alt text](Images/curl%20web1.png)
+
+# Remember, this is only an internal configuration and it is also local to your LB server, these names will neither be ‘resolvable’ from other servers internally nor from the Internet.
 Target Architecture
 Now your set-up looks like this:
 ![Alt text](Images/final%20lb%20sever.png)
+
+
+
+# Congratulations to the next shege
+![congratulations](https://i.pinimg.com/originals/47/fd/28/47fd2856377747c0f51b0adcf3050791.gif)
