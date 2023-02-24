@@ -376,7 +376,7 @@ exit
 
 - Lets test that you can connect from your Web Server to your DB server by using mysql-client
 
-   sudo mysql -u <your db user name> -p -h <DB-Server-Private-IP-address>
+   `sudo mysql -u <your db user name> -p -h <DB-Server-Private-IP-address>`
 
 Verify if you can successfully execute `SHOW DATABASES;` command and see a list of existing databases.
 
