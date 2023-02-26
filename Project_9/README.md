@@ -17,3 +17,6 @@ sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > \
 `sudo apt update`
 `sudo apt-get install jenkins`
 
+- Make sure Jenkins is up and running
+- sudo systemctl status jenkins
+By default Jenkins server uses TCP port 8080 – open it by creating a new Inbound Rule in your EC2 Security Group
