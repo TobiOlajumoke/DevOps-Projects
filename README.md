@@ -1,7 +1,4 @@
 
-## My Coding Activity
-
-![Coding Activity Chart](coding_activity_chart.png)
 
 
 # Welcome To My DevOps Projects
