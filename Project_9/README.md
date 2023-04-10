@@ -1,5 +1,5 @@
  # Continous Integration Pipeline For Tooling Website
-
+![Alt text](Images/jenkins.png)
 
 ## INSTALL AND CONFIGURE JENKINS SERVER
 Step 1 – Install the Jenkins server
@@ -8,16 +8,49 @@ Step 1 – Install the Jenkins server
 
 - Install JDK (since Jenkins is a Java-based application)
 
-`sudo apt update`
-`sudo apt install default-jdk-headless`
+```sh
+sudo apt update
+sudo apt install default-jdk-headless -y
+```
 
 - Install Jenkins
 
 ```
-wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
-sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > \
-    /etc/apt/sources.list.d/jenkins.list'
+wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+
 ```
 `sudo apt update`
 `sudo apt-get install jenkins`
+
+
+- Make sure Jenkins is up and running
+```sh
+sudo systemctl start jenkins
+sudo systemctl status jenkins
+```
+- By default Jenkins server uses TCP port 8080 – open it by creating a new Inbound Rule in your EC2 Security Group
+
+![Alt text](Images/jenkins%20SG.png)
+
+- Perform initial Jenkins setup. From your browser access:
+```
+ http://<Jenkins-Server-Public-IP-Address-or-Public-DNS-Name>:8080
+ ```
+
+![Alt text](Images/jenkins%20setup%201.png)
+
+
+- You will be prompted to provide a default admin password
+![Alt text](Images/jenkins%20setup%202.png)
+Retrieve it from your server:
+```
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+```
+
+- Then you will be asked which plugings to install – choose suggested plugins.
+
+![Alt text](Images/jenkins%20setup%203.png)
+
+
 
