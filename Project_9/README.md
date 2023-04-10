@@ -53,4 +53,11 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ![Alt text](Images/jenkins%20setup%203.png)
 
 
+Once plugin installation is done – create an admin user and you will get your Jenkins server address.
+The installation is completed!
+![Alt text](Images/jenkins%20setup%204.png)
+
+## Step 2 – Configure Jenkins to retrieve source codes from GitHub using Webhooks
+In this part, you will learn how to configure a simple Jenkins job/project (these two terms can be used interchangeably). This job will be triggered by GitHub webhooks and will execute a ‘build’ task to retrieve codes from GitHub and store it locally on Jenkins server.
+Enable webhooks in your GitHub repository settings
 
