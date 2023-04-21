@@ -149,3 +149,6 @@ Test the configuration and make sure the connection returns Success. Remember, t
 
 Save the configuration
 
+- open your Jenkins job/project configuration page and add another one "Post-build Action"
+![Alt text](Images/jenkins%20setup%2026.png)
+![Alt text](Images/jenkins%20setup%2027.png)
