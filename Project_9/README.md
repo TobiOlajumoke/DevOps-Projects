@@ -189,8 +189,8 @@ cat /mnt/apps/README.md
 ![Alt text](Images/jenkins%20setup%2032.png)
 
 If you see the changes you had previously made in your GitHub – the job works as expected.
-![greatwork](https://i.pinimg.com/originals/74/7c/0b/747c0bad832da60af8e933f390b00942.gif)
 
-Congratulations!
+## Congratulations!
 
 You have just implemented your first Continous Integration solution using Jenkins CI. Watch out for advanced CI configurations in upcoming projects.
+
