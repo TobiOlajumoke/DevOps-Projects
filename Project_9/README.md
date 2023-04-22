@@ -152,3 +152,45 @@ Save the configuration
 - open your Jenkins job/project configuration page and add another one "Post-build Action"
 ![Alt text](Images/jenkins%20setup%2026.png)
 ![Alt text](Images/jenkins%20setup%2027.png)
+
+![Alt text](Images/jenkins%20setup%2028.png)
+
+- Configure it to send all files produced by the build into our previously define remote directory. In our case we want to copy all files and directories – so we use **.
+If you want to apply some particular pattern to define which files to send – [use this syntax.](http://ant.apache.org/manual/dirtasks.html#patterns)
+![Alt text](Images/jenkins%20setup%2029.png)
+
+Save this configuration and go ahead, and change something in README.MD file in your GitHub Tooling repository.
+
+
+Webhook will trigger a new job and in the "Console Output" of the job you will find something like this:
+![Alt text](Images/jenkins%20setup%2030.png)
+
+in case the build fails 
+
+- go to your NFS termnal and run:
+
+```sudo chmod -R 777 /mnt
+```
+![Alt text](Images/jenkins%20setup%2030.5.png)
+
+
+- Make a new git commit/push to trigger a new build
+![Alt text](Images/new%20commit1.png)
+![Alt text](Images/new%20commit.png)
+- It should be fixed now the console should out put this :
+![Alt text](Images/jenkins%20setup%2031.5.png)
+![Alt text](Images/jenkins%20setup%2031.png)
+
+
+- To make sure that the files in /mnt/apps have been updated – connect via SSH/Putty to your NFS server and check README.MD file
+```
+cat /mnt/apps/README.md
+```
+![Alt text](Images/jenkins%20setup%2032.png)
+
+If you see the changes you had previously made in your GitHub – the job works as expected.
+![greatwork](https://i.pinimg.com/originals/74/7c/0b/747c0bad832da60af8e933f390b00942.gif)
+
+Congratulations!
+
+You have just implemented your first Continous Integration solution using Jenkins CI. Watch out for advanced CI configurations in upcoming projects.
