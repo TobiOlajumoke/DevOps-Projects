@@ -194,3 +194,5 @@ If you see the changes you had previously made in your GitHub – the job works 
 
 You have just implemented your first Continous Integration solution using Jenkins CI. Watch out for advanced CI configurations in upcoming projects.
 
+![greatwork](https://i.pinimg.com/originals/49/89/1e/49891ed4be81bcfb160f0c9c3bd8aa0f.gif)
+
