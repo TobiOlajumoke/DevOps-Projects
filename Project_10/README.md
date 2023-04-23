@@ -12,7 +12,8 @@ In this project you will register your website with LetsEnrcypt Certificate Auth
 
 
 This project consists of two parts:
-- Configure Nginx as a Load Balancer
+- Configure Nginx as a Load Balancers
+
 - Register a new domain name and configure secured connection using SSL/TLS certificates
 
 Your target architecture will look like this:
