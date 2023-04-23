@@ -9,3 +9,10 @@ SSL/TLS uses digital certificates to identify and validate a Website. A browser 
 There are different types of SSL/TLS certificates – you can learn more about them here. You can also watch a tutorial on how SSL works here or an additional resource here
 
 In this project you will register your website with LetsEnrcypt Certificate Authority, to automate certificate issuance you will use a shell client recommended by LetsEncrypt – cetrbot.
+
+
+This project consists of two parts:
+- Configure Nginx as a Load Balancer
+- Register a new domain name and configure secured connection using SSL/TLS certificates
+
+Your target architecture will look like this:
