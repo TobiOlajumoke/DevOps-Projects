@@ -183,6 +183,11 @@ sudo ln -s /snap/bin/certbot /usr/bin/certbot
 ```sh
 sudo certbot --nginx
 ```
+![Alt text](Images/domain%20cert%20setup.png)
+
+
+if it fails go to route 53 on AWS and configure a record name eg `www` like so:
+![Alt text](Images/p10%20complete.png)
 
 Test secured access to your Web Solution by trying to reach `https://<your-domain-name.com>`
 
@@ -190,7 +195,7 @@ You shall be able to access your website by using HTTPS protocol (that uses TCP 
 Click on the padlock icon and you can see the details of the certificate issued for your website.
 
 ![Alt text](Images/Domain%20name%20setup%206.png)
-
+![Alt text](Images/p10%20complete.png)
 
 - Set up periodical renewal of your SSL/TLS certificate
 By default, LetsEncrypt certificate is valid for 90 days, so it is recommended to renew it at least every 60 days or more frequently.
@@ -210,6 +215,7 @@ Add following line:
 ```sh
 * */12 * * *   root /usr/bin/certbot renew > /dev/null 2>&1
 ```
+![Alt text](Images/cron.png)
 You can always change the interval of this cronjob if twice a day is too often by adjusting schedule expression.
 
 Side Self Study: Refresh your cron configuration knowledge by watching this [video](https://youtu.be/4g1i0ylvx3A).
@@ -220,4 +226,4 @@ You can also use this handy [online cron expression editor](https://crontab.guru
 You have just implemented an Nginx Load Balancing Web Solution with secured HTTPS connection with periodically updated SSL/TLS certificates.
 
 
-![greatwork](https://i.pinimg.com/originals/49/89/1e/49891ed4be81bcfb160f0c9c3bd8aa0f.gif)
+![greatwork](https://i.pinimg.com/originals/f6/b0/33/f6b0339664d1dc725cb6d1e282525988.gif)
