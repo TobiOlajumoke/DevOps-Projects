@@ -221,9 +221,8 @@ You can always change the interval of this cronjob if twice a day is too often b
 Side Self Study: Refresh your cron configuration knowledge by watching this [video](https://youtu.be/4g1i0ylvx3A).
 You can also use this handy [online cron expression editor](https://crontab.guru/).
 
-
-## Congratulations!
 You have just implemented an Nginx Load Balancing Web Solution with secured HTTPS connection with periodically updated SSL/TLS certificates.
 
+## Congratulations!
 
-![greatwork](https://i.pinimg.com/originals/f6/b0/33/f6b0339664d1dc725cb6d1e282525988.gif)
+![greatwork](https://i.pinimg.com/originals/4a/5f/de/4a5fde2a6686e373e702c89b072a38c1.gif)
