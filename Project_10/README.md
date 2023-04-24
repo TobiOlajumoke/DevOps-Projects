@@ -17,3 +17,24 @@ This project consists of two parts:
 - Register a new domain name and configure secured connection using SSL/TLS certificates
 
 Your target architecture will look like this:
+![Alt text](Images/P10%201.png)
+
+## CONFIGURE NGINX AS A LOAD BALANCER
+You can either uninstall Apache from the existing Load Balancer server, or create a fresh installation of Linux for Nginx.
+
+- Create an EC2 VM based on Ubuntu Server 20.04 LTS and name it Nginx LB (do not forget to open TCP port 80 for HTTP connections, also open TCP port 443 – this port is used for secured HTTPS connections)\
+
+![Alt text](Images/P10%202.png)
+
+- Update /etc/hosts file for local DNS with Web Servers’ names (e.g. Web1 and Web2) and their local IP addresses
+
+- Install and configure Nginx as a load balancer to point traffic to the resolvable DNS names of the webservers
+
+Update the instance and Install Nginx
+
+```sh
+sudo apt update
+sudo apt install nginx
+```
+
+
