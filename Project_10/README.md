@@ -125,7 +125,6 @@ sudo systemctl status nginx
 ```
 
 
-
 ## REGISTER A NEW DOMAIN NAME AND CONFIGURE SECURED CONNECTION USING SSL/TLS CERTIFICATES
 Let us make necessary configurations to make connections to our Tooling Web Solution secured!
 
@@ -155,11 +154,70 @@ You might have noticed, that every time you restart or stop/start your EC2 insta
 
 
 
+- Update A record in your registrar to point to Nginx LB using Elastic IP address
+Learn how to associate your domain name to your Elastic IP on this [page](https://medium.com/progress-on-ios-development/connecting-an-ec2-instance-with-a-godaddy-domain-e74ff190c233).
+Side Self Study: Read about different [DNS record types](https://www.cloudflare.com/learning/dns/dns-records/) and learn what they are used for.
+
+- Check that your Web Servers can be reached from your browser using new domain name using HTTP protocol – http://<your-domain-name.com>
+
+- Configure Nginx to recognize your new domain name
+Update your load_balancer.conf with server_name www.<your-domain-name.com> instead of server_name www.domain.com
+
+- Install [certbot](https://certbot.eff.org/) and request for an SSL/TLS certificate
+Make sure [snapd](https://snapcraft.io/snapd) service is active and running
+```sh
+sudo systemctl status snapd
+```
+
+Install certbot
+
+```sh
+sudo snap install --classic certbot
+```
+
+Request your certificate (just follow the certbot instructions – you will need to choose which domain you want your certificate to be issued for, domain name will be looked up from load_balancer.conf file so make sure you have updated it on step 4).
+```sh
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+```
+
+```sh
+sudo certbot --nginx
+```
+
+Test secured access to your Web Solution by trying to reach `https://<your-domain-name.com>`
+
+You shall be able to access your website by using HTTPS protocol (that uses TCP port 443) and see a padlock pictogram in your browser’s search string.
+Click on the padlock icon and you can see the details of the certificate issued for your website.
+
+![Alt text](Images/Domain%20name%20setup%206.png)
 
 
+- Set up periodical renewal of your SSL/TLS certificate
+By default, LetsEncrypt certificate is valid for 90 days, so it is recommended to renew it at least every 60 days or more frequently.
+You can test renewal command in dry-run mode
+```sh
+sudo certbot renew --dry-run
+```
+
+- Best pracice is to have a scheduled job that to run renew command periodically. Let us configure a cronjob to run the command twice a day.
+To do so, lets edit the crontab file with the following command:
+```sh
+crontab -e
+```
+select `1`
+
+Add following line:
+```sh
+* */12 * * *   root /usr/bin/certbot renew > /dev/null 2>&1
+```
+You can always change the interval of this cronjob if twice a day is too often by adjusting schedule expression.
+
+Side Self Study: Refresh your cron configuration knowledge by watching this [video](https://youtu.be/4g1i0ylvx3A).
+You can also use this handy [online cron expression editor](https://crontab.guru/).
 
 
-  
+## Congratulations!
+You have just implemented an Nginx Load Balancing Web Solution with secured HTTPS connection with periodically updated SSL/TLS certificates.
 
-cd /etc/nginx/sites-available/
-.load_balancer.conf.swp
+
+![greatwork](https://i.pinimg.com/originals/49/89/1e/49891ed4be81bcfb160f0c9c3bd8aa0f.gif)
