@@ -9,3 +9,27 @@ Let us get started!
 Ansible Client as a Jump Server (Bastion Host)
 
 A [Jump Server](https://en.wikipedia.org/wiki/Jump_server) (sometimes also referred as [Bastion Host](https://en.wikipedia.org/wiki/Bastion_host)) is an intermediary server through which access to internal network can be provided. If you think about the current architecture you are working on, ideally, the webservers would be inside a secured network which cannot be reached directly from the Internet. That means, even DevOps engineers cannot SSH into the Web servers directly and can only access it through a Jump Server – it provide better security and reduces [attack surface](https://en.wikipedia.org/wiki/Attack_surface).
+
+
+
+When you reach Project 15, you will see a Bastion host in proper action. But for now, we will develop Ansible scripts to simulate the use of a Jump box/Bastion host to access our Web Servers.
+
+### Task
+- Install and configure Ansible client to act as a Jump Server/Bastion Host
+- Create a simple Ansible playbook to automate servers configuration
+
+
+## STEP 1
+
+INSTALL AND CONFIGURE ANSIBLE ON EC2 INSTANCE
+
+- Update Name tag on your Jenkins EC2 Instance to Jenkins-Ansible. We will use this server to run playbooks.
+- In your GitHub account create a new repository and name it ansible-config-mgt.
+- Install Ansible
+```sh
+sudo apt update
+```
+
+```sh
+sudo apt install ansible
+```
