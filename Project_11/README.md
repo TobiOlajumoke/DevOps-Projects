@@ -24,7 +24,7 @@ When you reach Project 15, you will see a Bastion host in proper action. But for
 INSTALL AND CONFIGURE ANSIBLE ON EC2 INSTANCE
 
 - Update Name tag on your Jenkins EC2 Instance to Jenkins-Ansible. We will use this server to run playbooks.
-
+![Alt text](Images/jenkins-ansible.png)
 - In your GitHub account create a new repository and name it ansible-config-mgt.
 - Install Ansible
 ```sh
@@ -35,5 +35,5 @@ sudo apt update
 sudo apt install ansible
 ```
 
-
-
+Check your Ansible version by running `ansible --version`
+![Alt text](Images/jenkins-ansible.png)
