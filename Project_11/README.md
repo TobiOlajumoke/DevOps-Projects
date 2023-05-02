@@ -52,6 +52,8 @@ Check your Ansible version by running `ansible --version`
 - Test your setup by making some change in README.MD file in master branch and make sure that builds starts automatically and Jenkins saves the files (build artifacts) in following folder.
 
 
+![Alt text](Images/tesr%201.png)
+![Alt text](Images/tesr%202.png)
 
 
 
