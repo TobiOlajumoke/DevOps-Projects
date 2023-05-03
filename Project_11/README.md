@@ -55,6 +55,12 @@ Check your Ansible version by running `ansible --version`
 ![Alt text](Images/tesr%201.png)
 ![Alt text](Images/tesr%202.png)
 
+```sh
+ls /var/lib/jenkins/jobs/ansible/builds/<build_number>/archive/
+```
+![Alt text](Images/ls%20command.png)
+Note: Trigger Jenkins project execution only for /main (master) branch.
+Now your setup will look like this:
 
 
 
