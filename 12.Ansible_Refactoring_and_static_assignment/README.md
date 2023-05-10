@@ -10,3 +10,9 @@ Refactoring is a general term in computer programming. It means making changes t
 In your case, you will move things around a little bit in the code, but the overal state of the infrastructure remains the same.
 
 Let us see how you can improve your Ansible code!
+
+
+
+## Step 1 – Jenkins job enhancement
+
+Before we begin, let us make some changes to our Jenkins job – now every new change in the codes creates a separate directory which is not very convenient when we want to run some commands from one place. Besides, it consumes space on Jenkins serves with each subsequent change. Let us enhance it by introducing a new Jenkins project/job – we will require Copy Artifact plugin.
