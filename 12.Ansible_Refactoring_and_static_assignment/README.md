@@ -31,3 +31,8 @@ sudo mkdir /home/ubuntu/ansible-config-artifact
 ![Alt text](Images/jenkins%202.png)
 ![Alt text](Images/jenkins%203.png)
 
+
+- Create a new Freestyle project (you have done it in Project 9) and name it save_artifacts.
+
+- This project will be triggered by completion of your existing ansible project. Configure it accordingly:
+
