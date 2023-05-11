@@ -18,10 +18,11 @@ Let us see how you can improve your Ansible code!
 Before we begin, let us make some changes to our Jenkins job – now every new change in the codes creates a separate directory which is not very convenient when we want to run some commands from one place. Besides, it consumes space on Jenkins serves with each subsequent change. Let us enhance it by introducing a new Jenkins project/job – we will require Copy Artifact plugin.
 
 - Go to your Jenkins-Ansible server and create a new directory called ansible-config-artifact – we will store there all artifacts after each build.
-sudo mkdir /home/ubuntu/ansible-config-artifact
+`sudo mkdir /home/ubuntu/ansible-config-artifact`
 
 
-- Change permissions to this directory, so Jenkins could save files there – chmod -R 0777 /home/ubuntu/ansible-config-artifact
+- Change permissions to this directory, so Jenkins could save files there – 
+`chmod -R 0777 /home/ubuntu/ansible-config-artifact`
 
 ![Alt text](Images/sudo%20ansible%20config.png)
 
@@ -35,4 +36,9 @@ sudo mkdir /home/ubuntu/ansible-config-artifact
 - Create a new Freestyle project (you have done it in Project 9) and name it save_artifacts.
 
 - This project will be triggered by completion of your existing ansible project. Configure it accordingly:
+
+
+
+Note: You can configure number of builds to keep in order to save space on the server, for example, you might want to keep only last 2 or 5 build results. You can also make this change to your ansible job.
+The main idea of save_artifacts project is to save artifacts into /home/ubuntu/ansible-config-artifact directory. To achieve this, create a Build step and choose Copy artifacts from other project, specify ansible as a source project and /home/ubuntu/ansible-config-artifact as a target directory.
 
