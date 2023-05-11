@@ -40,5 +40,6 @@ Before we begin, let us make some changes to our Jenkins job – now every new c
 
 
 Note: You can configure number of builds to keep in order to save space on the server, for example, you might want to keep only last 2 or 5 build results. You can also make this change to your ansible job.
-The main idea of save_artifacts project is to save artifacts into /home/ubuntu/ansible-config-artifact directory. To achieve this, create a Build step and choose Copy artifacts from other project, specify ansible as a source project and /home/ubuntu/ansible-config-artifact as a target directory.
+
+-  The main idea of save_artifacts project is to save artifacts into `/home/ubuntu/ansible-config-artifact `directory. To achieve this, create a Build step and choose Copy artifacts from other project, specify ansible as a source project and `/home/ubuntu/ansible-config-artifact` as a target directory.
 
