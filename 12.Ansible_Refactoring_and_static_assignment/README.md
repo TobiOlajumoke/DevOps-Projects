@@ -43,3 +43,6 @@ Note: You can configure number of builds to keep in order to save space on the s
 
 -  The main idea of save_artifacts project is to save artifacts into `/home/ubuntu/ansible-config-artifact `directory. To achieve this, create a Build step and choose Copy artifacts from other project, specify ansible as a source project and `/home/ubuntu/ansible-config-artifact` as a target directory.
 
+![Alt text](Images/jenkins%20setup%20for%20save_art%201.png)
+![Alt text](Images/jenkins%20setup%20for%20save_art%202.png)
+
