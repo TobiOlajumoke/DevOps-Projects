@@ -73,3 +73,24 @@ Let see code re-use in action by importing other playbooks.
 
 
 - Create a new folder in root of the repository and name it static-assignments. The static-assignments folder is where all other children playbooks will be stored. This is merely for easy organization of your work. It is not an Ansible specific concept, therefore you can choose how you want to organize your work. You will see why the folder name has a prefix of static very soon. For now, just follow along.
+
+
+Move common.yml file into the newly created static-assignments folder.
+`Inside site.yml` file, import `common.yml` playbook.
+```sh
+---
+- hosts: all
+- import_playbook: ../static-assignments/common.yml
+```
+The code above uses built in import_playbook Ansible module.
+Your folder structure should look like this;
+├── static-assignments
+│   └── common.yml
+├── inventory
+  └── dev
+    └── stage
+    └── uat
+    └── prod
+└── playbooks
+    └── site.yml
+
