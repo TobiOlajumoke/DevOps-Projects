@@ -125,3 +125,11 @@ Since you need to apply some tasks to your dev servers and wireshark is already 
       autoclean: yes
 
 ```
+
+- update site.yml with - import_playbook: ../static-assignments/common-del.yml instead of common.yml and run it against dev servers:
+cd /home/ubuntu/ansible-config-mgt/
+```
+ansible-playbook -i inventory/dev.yml playbooks/site.yaml
+
+
+
