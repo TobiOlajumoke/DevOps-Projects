@@ -128,8 +128,10 @@ Since you need to apply some tasks to your dev servers and wireshark is already 
 
 - update site.yml with - import_playbook: ../static-assignments/common-del.yml instead of common.yml and run it against dev servers:
 cd /home/ubuntu/ansible-config-mgt/
-```
+```sh
 ansible-playbook -i inventory/dev.yml playbooks/site.yaml
-
+```
+- Make sure that wireshark is deleted on all the servers by running wireshark --version
+Now you have learned how to use import_playbooks module and you have a ready solution to install/delete packages on multiple servers with just one command.
 
 
