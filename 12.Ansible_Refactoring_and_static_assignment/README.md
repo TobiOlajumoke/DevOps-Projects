@@ -135,3 +135,5 @@ ansible-playbook -i inventory/dev.yml playbooks/site.yaml
 Now you have learned how to use import_playbooks module and you have a ready solution to install/delete packages on multiple servers with just one command.
 
 
+## Step 3 – Configure UAT Webservers with a role ‘Webserver’
+We have our nice and clean dev environment, so let us put it aside and configure 2 new Web Servers as uat. We could write tasks to configure Web Servers in the same playbook, but it would be too messy, instead, we will use a dedicated role to make our configuration reusable.
