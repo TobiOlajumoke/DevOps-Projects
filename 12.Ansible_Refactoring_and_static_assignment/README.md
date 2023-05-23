@@ -144,3 +144,12 @@ Launch 2 fresh EC2 instances using RHEL 8 image, we will use them as our uat ser
 - To create a role, you must create a directory called roles/, relative to the playbook file or in `/etc/ansible/ `directory.
 
 
+There are two ways how you can create this folder structure:
+- Use an Ansible utility called ansible-galaxy inside ansible-config-mgt/roles directory (you need to create roles directory upfront)mkdir roles
+```sh
+cd roles
+```
+```sh
+ansible-galaxy init webserver
+```
+- Create the directory/files structure manually
