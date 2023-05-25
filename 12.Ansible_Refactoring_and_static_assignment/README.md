@@ -182,3 +182,16 @@ After removing unnecessary directories and files, the roles structure should loo
     ├── tasks
     │   └── main.yml
     └── templates
+
+
+- Update your inventory ansible-config-mgt/inventory/uat.yml file with IP addresses of your 2 UAT Web servers
+NOTE: Ensure you are using ssh-agent to ssh into the Jenkins-Ansible instance just as you have done in project 11;
+To learn how to setup SSH agent and connect VS Code to your Jenkins-Ansible instance, please see this video:
+- For Windows users – ssh-agent on windows
+- For Linux users – ssh-agent on linux
+```sh
+[uat-webservers]
+<Web1-UAT-Server-Private-IP-Address> ansible_ssh_user='ec2-user' 
+
+<Web2-UAT-Server-Private-IP-Address> ansible_ssh_user='ec2-user' 
+```
