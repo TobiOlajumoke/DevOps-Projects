@@ -212,3 +212,10 @@ To learn how to setup SSH agent and connect VS Code to your Jenkins-Ansible inst
 
 <Web2-UAT-Server-Private-IP-Address> ansible_ssh_user='ec2-user' 
 ```
+
+- In `/etc/ansible/ansible.cfg` file uncomment roles_path string and provide a full path to your roles directory roles_path = /home/ubuntu/ansible-config-mgt/roles, so Ansible could know where to find configured roles.
+![Alt text](Images/conf.png)
+
+
+
+
