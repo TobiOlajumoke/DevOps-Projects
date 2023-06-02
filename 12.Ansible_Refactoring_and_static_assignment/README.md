@@ -222,6 +222,46 @@ Clone Tooling website from GitHub https://github.com/<your-name>/tooling.git.
 Ensure the tooling website code is deployed to /var/www/html on each of 2 UAT Web servers.
 Make sure httpd service is started
 
+```sh
+Your main.yml may consist of following tasks:
+---
+- name: install apache
+  become: true
+  ansible.builtin.yum:
+    name: "httpd"
+    state: present
+
+- name: install git
+  become: true
+  ansible.builtin.yum:
+    name: "git"
+    state: present
+
+- name: clone a repo
+  become: true
+  ansible.builtin.git:
+    repo: https://github.com/<your-name>/tooling.git
+    dest: /var/www/html
+    force: yes
+
+- name: copy html content to one level up
+  become: true
+  command: cp -r /var/www/html/html/ /var/www/
+
+- name: Start service httpd, if not started
+  become: true
+  ansible.builtin.service:
+    name: httpd
+    state: started
+
+- name: recursively remove /var/www/html/html/ directory
+  become: true
+  ansible.builtin.file:
+    path: /var/www/html/html
+    state: absent
+
+
+```
 
 
 
