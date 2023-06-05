@@ -278,3 +278,13 @@ Remember that the entry point to our ansible configuration is the site.yml file.
 So, we should have this in site.yml
 
 
+```sh
+---
+- hosts: all
+- import_playbook: ../static-assignments/common.yml
+
+- hosts: uat-webservers
+- import_playbook: ../static-assignments/uat-webservers.yml
+```
+
+
