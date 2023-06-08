@@ -287,4 +287,7 @@ So, we should have this in site.yml
 - import_playbook: ../static-assignments/uat-webservers.yml
 ```
 
+# Step 5 – Commit & Test
+Commit your changes, create a Pull Request and merge them to master branch, make sure webhook triggered two consequent Jenkins jobs, they ran successfully and copied all the files to your Jenkins-Ansible server into /home/ubuntu/ansible-config-mgt/ directory.
+Now run the playbook against your uat inventory and see what happens:
 
