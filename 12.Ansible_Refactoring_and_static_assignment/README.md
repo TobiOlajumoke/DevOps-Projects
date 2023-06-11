@@ -305,4 +305,4 @@ or
 http://<Web1-UAT-Server-Public-IP-or-Public-DNS-Name>/index.php
 ```
 
-
+![Alt text](../../../Pictures/uat1.png)
