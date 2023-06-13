@@ -309,3 +309,7 @@ http://<Web1-UAT-Server-Public-IP-or-Public-DNS-Name>/index.php
 
 Your Ansible architecture now looks like this:
 ![Alt text](Images/archi.png)
+
+- In Project 13, you will see the difference between Static and Dynamic assignments.
+Congratulations!
+You have learned how to deploy and configure UAT Web Servers using Ansible imports and roles!
