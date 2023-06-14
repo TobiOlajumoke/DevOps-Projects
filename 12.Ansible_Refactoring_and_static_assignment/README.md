@@ -313,3 +313,6 @@ Your Ansible architecture now looks like this:
 - In Project 13, you will see the difference between Static and Dynamic assignments.
 Congratulations!
 You have learned how to deploy and configure UAT Web Servers using Ansible imports and roles!
+
+## Good job
+![greatwork](https://i.pinimg.com/originals/4a/5f/de/4a5fde2a6686e373e702c89b072a38c1.gif)
