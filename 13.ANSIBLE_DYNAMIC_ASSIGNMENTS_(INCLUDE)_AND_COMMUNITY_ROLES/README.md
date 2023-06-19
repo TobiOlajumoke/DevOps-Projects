@@ -27,7 +27,7 @@ Your GitHub shall have following structure by now.
 Note: Depending on what method you used in the previous project you may have or not have roles folder in your GitHub repository – if you used ansible-galaxy, then roles directory was only created on your Jenkins-Ansible server locally. It is recommended to have all the codes managed and tracked in GitHub, so you might want to recreate this structure manually in this case – it is up to you.
 
 
-```
+```sh
 ├── dynamic-assignments
 │   └── env-vars.yml
 ├── inventory
@@ -67,3 +67,43 @@ Your layout should now look like this.
     └── common.yml
 
 ```
+
+
+Now paste the instruction below into the env-vars.yml file.
+
+```sh
+---
+- name: collate variables from env specific file, if it exists
+  hosts: all
+  tasks:
+    - name: looping through list of available files
+      include_vars: "{{ item }}"
+      with_first_found:
+        - files:
+            - dev.yml
+            - stage.yml
+            - prod.yml
+            - uat.yml
+          paths:
+            - "{{ playbook_dir }}/../env-vars"
+      tags:
+        - always
+```
+
+
+Notice 3 things to notice here:
+
+1. We used include_vars syntax instead of include, this is because Ansible developers decided to separate different features of the module. From Ansible version 2.8, the include module is deprecated and variants of include_* must be used. These are:
+- include_role
+- include_tasks
+- include_vars
+## In the same version, variants of import were also introduces, such as:
+
+- import_role
+import_tasks
+
+2. We made use of a special variables { playbook_dir } and { inventory_file }. { playbook_dir } will help Ansible to determine the location of the running playbook, and from there navigate to other path on the filesystem. { inventory_file } on the other hand will dynamically resolve to the name of the inventory file being used, then append .yml so that it picks up the required file within the env-vars folder.
+
+3. We are including the variables using a loop. with_first_found implies that, looping through the list of files, the first one found is used. This is good so that we can always set default values in case an environment specific env file does not exist.
+
+
