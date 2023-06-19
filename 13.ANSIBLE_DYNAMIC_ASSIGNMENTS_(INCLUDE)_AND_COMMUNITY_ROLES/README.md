@@ -51,4 +51,19 @@ Since we will be using the same Ansible to configure multiple environments, and 
 For this reason, we will now create a folder to keep each environment’s variables file. Therefore, create a new folder env-vars, then for each environment, create new YAML files which we will use to set variables.
 Your layout should now look like this.
 
+```sh
+├── dynamic-assignments
+│   └── env-vars.yml
+├── inventory
+│   └── dev
+    └── stage
+    └── uat
+    └── prod
+└── playbooks
+    └── site.yml
+└── roles (optional folder)
+    └──...(optional subfolders & files)
+└── static-assignments
+    └── common.yml
 
+```
