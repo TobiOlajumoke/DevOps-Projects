@@ -107,3 +107,27 @@ import_tasks
 3. We are including the variables using a loop. with_first_found implies that, looping through the list of files, the first one found is used. This is good so that we can always set default values in case an environment specific env file does not exist.
 
 
+
+
+
+UPDATE SITE.YML WITH DYNAMIC ASSIGNMENTS
+Update site.yml with dynamic assignments
+Update site.yml file to make use of the dynamic assignment. (At this point, we cannot test it yet. We are just setting the stage for what is yet to come. So hang on to your hats)
+site.yml should now look like this.
+
+```sh
+---
+- hosts: all
+- name: Include dynamic variables 
+  tasks:
+  import_playbook: ../static-assignments/common.yml 
+  include: ../dynamic-assignments/env-vars.yml
+  tags:
+    - always
+
+
+-  hosts: webservers
+- name: Webserver assignment
+  import_playbook: ../static-assignments/webservers.yml
+```
+
