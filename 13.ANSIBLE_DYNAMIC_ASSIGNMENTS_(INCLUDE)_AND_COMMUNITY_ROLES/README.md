@@ -54,21 +54,26 @@ Your layout should now look like this.
 ```sh
 ├── dynamic-assignments
 │   └── env-vars.yml
+├── env-vars
+    └── dev.yml
+    └── stage.yml
+    └── uat.yml
+    └── prod.yml
 ├── inventory
-│   └── dev
+    └── dev
     └── stage
     └── uat
     └── prod
-└── playbooks
+├── playbooks
     └── site.yml
-└── roles (optional folder)
-    └──...(optional subfolders & files)
 └── static-assignments
     └── common.yml
+    └── webservers.yml
+
 
 ```
 
-
+![Alt text](<Images/file layout.png>)
 Now paste the instruction below into the env-vars.yml file.
 
 ```sh
@@ -156,3 +161,10 @@ mv geerlingguy.mysql/ mysql
 ```
 Read README.md file, and edit roles configuration to use correct credentials for MySQL required for the tooling website.
 
+Now it is time to upload the changes into your GitHub:
+```sh
+git add .
+git commit -m "Commit new role files into GitHub"
+git push --set-upstream origin roles-feature
+```
+Now, if you are satisfied with your codes, you can create a Pull Request and merge it to main branch on GitHub.
