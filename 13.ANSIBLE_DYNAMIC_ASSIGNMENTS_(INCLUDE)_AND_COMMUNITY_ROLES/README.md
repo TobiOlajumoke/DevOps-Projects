@@ -168,3 +168,13 @@ git commit -m "Commit new role files into GitHub"
 git push --set-upstream origin roles-feature
 ```
 Now, if you are satisfied with your codes, you can create a Pull Request and merge it to main branch on GitHub.
+
+
+
+# Load Balancer roles
+We want to be able to choose which Load Balancer to use, Nginx or Apache, so we need to have two roles respectively:
+Nginx
+Apache
+With your experience on Ansible so far you can:
+Decide if you want to develop your own roles, or find available ones from the community
+Update both static-assignment and site.yml files to refer the roles
