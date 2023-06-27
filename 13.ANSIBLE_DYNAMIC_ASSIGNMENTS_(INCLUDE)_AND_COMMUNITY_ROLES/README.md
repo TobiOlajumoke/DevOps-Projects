@@ -186,3 +186,19 @@ Declare a variable in defaults/main.yml file inside the Nginx and Apache roles. 
 Set both values to false like this enable_nginx_lb: false and enable_apache_lb: false.
 Declare another variable in both roles load_balancer_is_required and set its value to false as well
 Update both assignment and site.yml files respectively
+
+
+loadbalancers.yml file
+```sh
+- hosts: lb
+  roles:
+    - { role: nginx, when: enable_nginx_lb and load_balancer_is_required }
+    - { role: apache, when: enable_apache_lb and load_balancer_is_required }
+```
+```sh
+site.yml file
+     - name: Loadbalancers assignment
+       hosts: lb
+         - import_playbook: ../static-assignments/loadbalancers.yml
+        when: load_balancer_is_required 
+```
