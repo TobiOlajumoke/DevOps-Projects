@@ -155,7 +155,12 @@ git branch roles-feature
 git switch roles-feature
 ```
 
-- Inside roles directory create your new MySQL role with ansible-galaxy install geerlingguy.mysql and rename the folder to mysql
+- Inside roles directory create your new MySQL role with 
+```sh
+ansible-galaxy install -p . geerlingguy.mysql
+```
+
+ and rename the folder to mysql
 ```sh
 mv geerlingguy.mysql/ mysql
 ```
@@ -167,8 +172,10 @@ git add .
 git commit -m "Commit new role files into GitHub"
 git push --set-upstream origin roles-feature
 ```
-Now, if you are satisfied with your codes, you can create a Pull Request and merge it to main branch on GitHub.
 
+Incase you get an error like this saying ou can't push to github, you can try the solution below:
+
+Coonect the EC2 instance to github account via ssh key
 
 
 # Load Balancer roles
