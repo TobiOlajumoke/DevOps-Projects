@@ -173,9 +173,23 @@ git commit -m "Commit new role files into GitHub"
 git push --set-upstream origin roles-feature
 ```
 
-Incase you get an error like this saying ou can't push to github, you can try the solution below:
+Incase you get an error like this saying you can't push to github, you can try the solution below:
 
-Coonect the EC2 instance to github account via ssh key
+Connect the EC2 instance to github account via ssh key
+
+
+type:
+```sh
+ssh-keygen
+```
+- press enter 4 times
+- use the cat command to dislay the key
+
+```sh
+cat ssh-keygen
+```
+![Alt text](<Images/ssh key gen.png>)
+- copy it and paste in the ssh key section on github
 
 
 # Load Balancer roles
