@@ -191,6 +191,13 @@ cat ssh-keygen
 ![Alt text](<Images/ssh key gen.png>)
 - copy it and paste in the ssh key section on github
 
+- go to your gitub account settings
+
+![Alt text](<Images/ssh key gen 1.png>)
+
+- add an ssh key, paste the key copied earlier and input your password to complete the process 
+![Alt text](<Images/ssh key gen 2.png>)
+![Alt text](<Images/ssh key gen 3.png>)
 
 # Load Balancer roles
 We want to be able to choose which Load Balancer to use, Nginx or Apache, so we need to have two roles respectively:
