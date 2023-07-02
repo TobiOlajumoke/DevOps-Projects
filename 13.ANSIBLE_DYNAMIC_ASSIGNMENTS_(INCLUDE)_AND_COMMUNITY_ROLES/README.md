@@ -199,6 +199,16 @@ cat ssh-keygen
 ![Alt text](<Images/ssh key gen 2.png>)
 ![Alt text](<Images/ssh key gen 3.png>)
 
+- return to the instance terminal
+and run the git add and commit and when pushing use this:
+
+```sh
+git remote set-url origin git@github:<username>/<repo name>
+```
+then run:
+```
+git push --set-upstream origin roles-feature
+```
 # Load Balancer roles
 We want to be able to choose which Load Balancer to use, Nginx or Apache, so we need to have two roles respectively:
 Nginx
