@@ -240,3 +240,13 @@ site.yml file
          - import_playbook: ../static-assignments/loadbalancers.yml
         when: load_balancer_is_required 
 ```
+
+
+Now you can make use of env-vars\uat.yml file to define which loadbalancer to use in UAT environment by setting respective environmental variable to true.
+You will activate load balancer, and enable nginx by setting these in the respective environment’s env-vars file.
+```sh
+enable_nginx_lb: true
+load_balancer_is_required: true
+```
+
+
