@@ -241,12 +241,11 @@ site.yml file
         when: load_balancer_is_required 
 ```
 
+The same must work with apache LB, so you can switch it by setting respective environmental variable to true and other to false.
+To test this, you can update inventory for each environment and run Ansible against each environment.
 
-Now you can make use of env-vars\uat.yml file to define which loadbalancer to use in UAT environment by setting respective environmental variable to true.
-You will activate load balancer, and enable nginx by setting these in the respective environment’s env-vars file.
-```sh
-enable_nginx_lb: true
-load_balancer_is_required: true
-```
+# Congratulations!
+![greatwork](https://i.pinimg.com/originals/4a/5f/de/4a5fde2a6686e373e702c89b072a38c1.gif)
+
 
 
