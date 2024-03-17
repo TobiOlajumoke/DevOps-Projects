@@ -109,3 +109,29 @@ What we want to achieve, is having Nginx to serve as a reverse proxy for our sit
 
 ![alt text](<images/CI evnivronment.png>)
 
+### Other Environments from Lower To Higher
+
+
+| Server   | Domain    | a       |
+| ---    | ---   | ---     |
+| Jenkins | https://ci.infradev.darey.io |
+|Sonarqube | https://sonar.infradev.darey.io | 
+
+
+
+| Server   | Domain |        |
+| ---    | ---   | ---     |
+| Artifactory | https://artifacts.infradev.darey.io |
+| Production Tooling | https://tooling.darey.io |
+| Pre-Prod Tooling | https://tooling.preprod.darey.io |
+| Pentest Tooling | https://tooling.pentest.darey.io |
+| UAT Tooling | https://tooling.uat.darey.io |
+| SIT Tooling | https://tooling.sit.darey.io |
+| Dev Tooling | https://tooling.dev.darey.io |
+| Production TODO-WebApp | https://todo.darey.io |
+| Pre-Prod TODO-WebApp | https://todo.preprod.darey.io |
+| Pentest TODO-WebApp | https://todo.pentest.darey.io |
+| UAT TODO-WebApp | https://todo.uat.darey.io |
+| SIT TODO-WebApp | https://todo.sit.darey.io |
+| Dev TODO-WebApp | https://todo.dev.darey.io |
+
