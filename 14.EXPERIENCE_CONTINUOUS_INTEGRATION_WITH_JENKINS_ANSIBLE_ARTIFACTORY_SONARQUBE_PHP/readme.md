@@ -77,3 +77,11 @@ It might be common after a deployment to see major changes in the usage of speci
 These are the major metrics that any DevOps team should track and monitor to understand how well CI/CD process is established and how it helps to deliver quality application to the users.
 
 
+## SIMULATING A TYPICAL CI/CD PIPELINE FOR A PHP BASED APPLICATION
+As part of the ongoing infrastructure development with Ansible started from Project 11, you will be tasked to create a pipeline that simulates continuous integration and delivery. Target end to end CI/CD pipeline is represented by the diagram below. It is important to know that both Tooling and TODO Web Applications are based on an interpreted (scripting) language (PHP). It means, it can be deployed directly onto a server and will work without compiling the code to a machine language.
+
+The problem with that approach is, it would be difficult to package and version the software for different releases. And so, in this project, we will be using a different approach for releases, rather than downloading directly from git, we will be using Ansible uri module.
+
+![alt text](<images/php cicd pipline diagram.png>)
+
+
