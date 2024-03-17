@@ -214,3 +214,23 @@ pentest-tooling
 
 This makes us to introduce another Ansible concept called group_vars. With group vars, we can declare and set variables for each group of servers created in the inventory file.
 For example, If there are variables we need to be common between both pentest-todo and pentest-tooling, rather than setting these variables in many places, we can simply use the group_vars for pentest. Since in the inventory file it has been created as pentest:children Ansible recognizes this and simply applies that variable to both children.
+
+
+### ANSIBLE ROLES FOR CI ENVIRONMENT
+Now go ahead and Add two more roles to ansible:
+1. SonarQube (Scroll down to the Sonarqube section to see instructions on how to set up and configure SonarQube manually)
+2. Artifactory
+
+#### Why do we need SonarQube?
+SonarQube is an open-source platform developed by SonarSource for continuous inspection of code quality, it is used to perform automatic reviews with static analysis of code to detect bugs, code smells, and security vulnerabilities. Watch a short description here. There is a lot more hands on work ahead with SonarQube and Jenkins. So, the purpose of SonarQube will be clearer to you very soon.
+
+#### Why do we need Artifactory?
+Artifactory is a product by JFrog that serves as a binary repository manager. The binary repository is a natural extension to the source code repository, in that the outcome of your build process is stored. It can be used for certain other automation, but we will it strictly to manage our build artifacts.
+
+Watch a short description here Focus more on the first 10.08 mins
+
+#### Configuring Ansible For Jenkins Deployment
+In previous projects, you have been launching Ansible commands manually from a CLI. Now, with Jenkins, we will start running Ansible from Jenkins UI.
+To do this,
+1. Navigate to Jenkins URL
+2. Install & Open Blue Ocean Jenkins Plugin
