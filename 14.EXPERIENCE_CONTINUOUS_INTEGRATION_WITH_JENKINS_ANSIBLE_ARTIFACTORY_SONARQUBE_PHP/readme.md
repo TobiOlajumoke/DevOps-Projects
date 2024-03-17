@@ -235,21 +235,22 @@ To do this,
 1. Navigate to Jenkins URL
 2. Install & Open Blue Ocean Jenkins Plugin
 3. create a new pipeline 
-
+![alt text](<images/blueocean jenkins 1.png>)
 4. Create a new pipeline
-
+![alt text](<images/blueocean jenkins 2.png>)
 5. Select GitHub
-
+![alt text](<images/blueocean jenkins 3.png>)
 6. Connect Jenkins with GitHub
-
+![alt text](<images/blueocean jenkins 4.png>)
 Login to GitHub & Generate an Access Tokenhttps://www.darey.io/wp-content/uploads/2021/07/Jenkins-Create-Access-Token-To-Github.png
 
 
 7. Copy Access Token
-
+![alt text](<images/blueocean jenkins 5.png>)
 8. Paste the token and connect
-
+![alt text](<images/blueocean jenkins 6.png>)
 9. Create a new Pipeline
+![alt text](<images/blueocean jenkins 7.png>)
 
 At this point you may not have a Jenkinsfile in the Ansible repository, so Blue Ocean will attempt to give you some guidance to create one. But we do not need that. We will rather create one ourselves. So, click on Administration to exit the Blue Ocean console.
 
