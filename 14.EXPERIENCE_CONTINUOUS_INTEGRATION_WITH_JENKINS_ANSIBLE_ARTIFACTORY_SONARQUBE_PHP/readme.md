@@ -30,3 +30,20 @@ Deploy: Once the tests are passed, the next phase is to deploy the compiled or p
 - Measure and Validate: This is where live users are interacting with the application and feedback is being collected for further improvements and bug fixes. There are many metrics that must be determined and observed here. We will quickly go through 13 metrics that MUST be considered.
 
 
+## Common Best Practices of CI/CD
+
+Before we move on to observability metrics – let us list down the principles that define a reliable and robust CI/CD pipeline:
+
+- Maintain a code repository
+- Automate build process
+- Make builds self-tested
+- Everyone commits to the baseline every day
+- Every commit to baseline should be built
+- Every bug-fix commit should come with a test case
+- Keep the build fast
+- Test in a clone of production environment
+- Make it easy to get the latest deliverables
+- Everyone can see the results of the latest build
+- Automate deployment (if you are confident enough in your CI/CD pipeline and willing to go for a fully automated Continuous Deployment)
+
+
