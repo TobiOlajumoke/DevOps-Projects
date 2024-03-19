@@ -341,5 +341,7 @@ Let us see this in action.
 
 3. To make your new branch show up in Jenkins, we need to tell Jenkins to scan the repository.
     1. Click on the "Administration" button
+    ![alt text](images/administration.png)
 
     2. Navigate to the Ansible project and click on "Scan repository now"
+    ![alt text](<images/scan repo.png>)
