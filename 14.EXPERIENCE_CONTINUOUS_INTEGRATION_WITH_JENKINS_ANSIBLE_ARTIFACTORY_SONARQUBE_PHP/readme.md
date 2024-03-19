@@ -345,3 +345,10 @@ Let us see this in action.
 
     2. Navigate to the Ansible project and click on "Scan repository now"
     ![alt text](<images/scan repo.png>)
+
+    3. Refresh the page and both branches will start building automatically. You can go into Blue Ocean and see both branches there too.
+
+      ![alt text](<images/feature branch scanned.png>)
+
+    4. In Blue Ocean, you can now see how the Jenkinsfile has caused a new step in the pipeline launch build for the new branch.
+       ![alt text](<images/blueocean feature branch.png>)
