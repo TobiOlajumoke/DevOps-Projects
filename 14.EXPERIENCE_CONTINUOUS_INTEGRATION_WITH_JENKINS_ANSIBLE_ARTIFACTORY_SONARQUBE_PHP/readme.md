@@ -287,7 +287,51 @@ Now go back into the Ansible pipeline in Jenkins, and select configure
 ![alt text](<images/jenkin configure.png>)
 
 Back to the pipeline again, this time click "Build now"
+![alt text](<images/1st pipleline build.png>)
+This will trigger a build and you will be able to see the effect of our basic Jenkinsfile configuration by going through the console output of the build.
+
 
 This will trigger a build and you will be able to see the effect of our basic Jenkinsfile configuration by going through the console output of the build.
-![alt text](<images/1st pipleline build.png>)
+To really appreciate and feel the difference of Cloud Blue UI, it is recommended to try triggering the build again from Blue Ocean interface.
+1. Click on Blue Ocean
 
+2. Select your project
+
+3. Click on the play button against the branch
+
+![alt text](<images/blueocean build image.png>)
+
+Notice that this pipeline is a multibranch one. This means, if there were more than one branch in GitHub, Jenkins would have scanned the repository to discover them all and we would have been able to trigger a build for each branch.
+Let us see this in action.
+
+
+1. Create a new git branch and name it `feature/jenkinspipeline-stages`
+
+2. Currently we only have the Build stage. Let us add another stage called Test. Paste the code snippet below and push the new changes to GitHub.
+
+
+```
+   pipeline {
+    agent any
+
+
+  stages {
+    stage('Build') {
+      steps {
+        script {
+          sh 'echo "Building Stage"'
+        }
+      }
+    }
+
+
+    stage('Test') {
+      steps {
+        script {
+          sh 'echo "Testing Stage"'
+        }
+      }
+    }
+    }
+}
+```
