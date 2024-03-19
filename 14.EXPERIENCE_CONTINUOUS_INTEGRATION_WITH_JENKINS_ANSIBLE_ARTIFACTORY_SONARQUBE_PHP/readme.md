@@ -278,4 +278,16 @@ pipeline {
     }
 }
 ```
+
+Now push the code added to github
+![alt text](<images/add jenkin file.png>)
+
 Now go back into the Ansible pipeline in Jenkins, and select configure
+
+![alt text](<images/jenkin configure.png>)
+
+Back to the pipeline again, this time click "Build now"
+
+This will trigger a build and you will be able to see the effect of our basic Jenkinsfile configuration by going through the console output of the build.
+![alt text](<images/1st pipleline build.png>)
+
