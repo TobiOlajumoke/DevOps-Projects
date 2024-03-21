@@ -371,3 +371,16 @@ Let us see this in action.
 
 ![alt text](<images/complete pipline blueocean.png>)
 
+## RUNNING ANSIBLE PLAYBOOK FROM JENKINS
+
+Now that you have a broad overview of a typical Jenkins pipeline. Let us get the actual Ansible deployment to work by:
+1. Installing Ansible on Jenkins
+2. Installing Ansible plugin in Jenkins UI
+3. Creating Jenkinsfile from scratch. (Delete all you currently have in there and start all over to get Ansible to run successfully)
+
+You can watch a 10 minutes video here to guide you through the entire setup
+Note: Ensure that Ansible runs against the Dev environment successfully.
+Possible errors to watch out for:
+Ensure that the git module in Jenkinsfile is checking out SCM to main branch instead of master (GitHub has discontinued the use of Master due to Black Lives Matter. You can read more here)
+Jenkins needs to export the ANSIBLE_CONFIG environment variable. You can put the .ansible.cfg file alongside Jenkinsfile in the deploy directory. This way, anyone can easily identify that everything in there relates to deployment. Then, using the Pipeline Syntax tool in Ansible, generate the syntax to create environment variables to set.
+https://wiki.jenkins.io/display/JENKINS/Building+a+software+project
