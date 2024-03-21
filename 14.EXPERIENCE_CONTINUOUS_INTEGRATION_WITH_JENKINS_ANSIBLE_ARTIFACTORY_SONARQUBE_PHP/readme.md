@@ -352,3 +352,22 @@ Let us see this in action.
 
     4. In Blue Ocean, you can now see how the Jenkinsfile has caused a new step in the pipeline launch build for the new branch.
        ![alt text](<images/blueocean feature branch.png>)
+
+
+## A QUICK TASK FOR YOU!
+
+1. Create a pull request to merge the latest code into the main branch
+2. After merging the PR, go back into your terminal and switch into the main branch.
+3. Pull the latest change.
+4. Create a new branch, add more stages into the Jenkins file to simulate below phases. (Just add an echo command like we have in build and test stages)
+   1. Package 
+   2. Deploy 
+   3. Clean up
+![alt text](<images/moreg stages.png>)
+
+5. Verify in Blue Ocean that all the stages are working, then merge your feature branch to the main branch
+6. Eventually, your main branch should have a successful pipeline like this in blue ocean
+
+
+![alt text](<images/complete pipline blueocean.png>)
+
