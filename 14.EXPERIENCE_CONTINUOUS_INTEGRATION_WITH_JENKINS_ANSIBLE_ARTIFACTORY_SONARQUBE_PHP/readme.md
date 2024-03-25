@@ -440,13 +440,13 @@ pipeline {
 ```
 3. In the Ansible execution section, remove the hardcoded inventory/dev and replace with `${inventory}
 From now on, each time you hit on execute, it will expect an input.
-
+![alt text](<images/dev params.png>)
 
 
 
 Notice that the default value loads up, but we can now specify which environment we want to deploy the configuration to. Simply type sit and hit Run
 
-
+![alt text](<images/sit params.png>)
 
 
 4. Add another parameter. This time, introduce tagging in Ansible. You can limit the Ansible execution to a specific role or playbook desired. Therefore, add an Ansible tag to run against webserver only. Test this locally first to get the experience. Once you understand this, update Jenkinsfile and run it from Jenkins.
