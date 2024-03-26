@@ -473,3 +473,15 @@ Our goal here is to deploy the application onto servers directly from Artifactor
 ![alt text](<images/prepare jenkins 1.png>)
 Configure the server ID, URL and Credentials, run Test Connection.
 ![alt text](<images/prepare jenkins 2.png>)
+
+### Phase 2 – Integrate Artifactory repository with Jenkins
+1. Create a dummy Jenkinsfile in the repository
+2. Using Blue Ocean, create a multibranch Jenkins pipeline
+3. On the database server, create database and user
+```
+Create database homestead;
+CREATE USER 'homestead'@'%' IDENTIFIED BY 'sePret^i';
+GRANT ALL PRIVILEGES ON * . * TO 'homestead'@'%';
+```
+4. Update the database connectivity requirements in the file .env.sample
+5. Update Jenkinsfile with proper pipeline configuration
