@@ -524,3 +524,19 @@ pipeline {
 }
 ```
 
+
+Notice the Prepare Dependencies section
+    - The required file by PHP is .env so we are renaming .env.sample to .env
+    - Composer is used by PHP to install all the dependent libraries used by the application
+    - php artisan uses the .env file to setup the required database objects – (After successful run of this step, login to the database, run show tables and you will see the tables being created for you)
+
+   1. Update the Jenkinsfile to include Unit tests step
+   ```
+       stage('Execute Unit Tests') {
+      steps {
+             sh './vendor/bin/phpunit'
+      } 
+
+   ```
+
+
