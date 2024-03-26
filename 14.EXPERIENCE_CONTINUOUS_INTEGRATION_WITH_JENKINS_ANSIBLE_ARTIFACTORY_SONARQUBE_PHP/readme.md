@@ -470,6 +470,6 @@ Our goal here is to deploy the application onto servers directly from Artifactor
 - We will use plot plugin to display tests reports, and code coverage information.
 - The Artifactory plugin will be used to easily upload code artifacts into an Artifactory server.
 4. In Jenkins UI configure Artifactory
-
+![alt text](<images/prepare jenkins 1.png>)
 Configure the server ID, URL and Credentials, run Test Connection.
-
+![alt text](<images/prepare jenkins 2.png>)
