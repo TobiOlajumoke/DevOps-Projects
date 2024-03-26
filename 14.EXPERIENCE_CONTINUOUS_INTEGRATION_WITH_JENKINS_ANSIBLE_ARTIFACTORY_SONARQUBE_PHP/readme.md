@@ -540,3 +540,13 @@ Notice the Prepare Dependencies section
    ```
 
 
+### Phase 3 – Code Quality Analysis
+This is one of the areas where developers, architects and many stakeholders are mostly interested in as far as product development is concerned. As a DevOps engineer, you also have a role to play. Especially when it comes to setting up the tools.
+
+
+
+For PHP the most commonly tool used for code quality analysis is phploc. Read the article here for more
+The data produced by phploc can be ploted onto graphs in Jenkins.
+
+
+1. Add the code analysis step in Jenkinsfile. The output of the data will be saved in build/logs/phploc.csv file.
