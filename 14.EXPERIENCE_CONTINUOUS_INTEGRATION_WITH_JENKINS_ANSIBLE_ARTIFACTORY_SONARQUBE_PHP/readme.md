@@ -589,3 +589,13 @@ This plugin provides generic plotting (or graphing) capabilities in Jenkins. It 
     }
 ```
 You should now see a Plot menu item on the left menu. Click on it to see the charts. (The analytics may not mean much to you as it is meant to be read by developers. So, you need not worry much about it – this is just to give you an idea of the real-world implementation).
+![alt text](images/plotimg.png)
+
+2. Bundle the application code for into an artifact (archived package) upload to Artifactory
+```
+stage ('Package Artifact') {
+    steps {
+            sh 'zip -qr php-todo.zip ${WORKSPACE}/*'
+     }
+    }
+```
