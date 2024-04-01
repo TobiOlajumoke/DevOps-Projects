@@ -825,3 +825,70 @@ Move extracted setup to /opt/sonarqube directory
 ```
 sudo mv /opt/sonarqube-7.9.3 /opt/sonarqube
 ```
+
+
+
+### CONFIGURE SONARQUBE
+
+We cannot run SonarQube as a root user, if you run using root user it will stop automatically. The ideal approach will be to create a separate group and a user to run SonarQube
+
+Create a group sonar
+```
+sudo groupadd sonar
+```
+
+Now add a user with control over the /opt/sonarqube directory
+```
+ sudo useradd -c "user to run SonarQube" -d /opt/sonarqube -g sonar sonar 
+ sudo chown sonar:sonar /opt/sonarqube -R
+ ```
+
+Open SonarQube configuration file using your favourite text editor (e.g., nano or vim)
+```
+sudo vim /opt/sonarqube/conf/sonar.properties
+```
+
+Find the following lines:
+```
+#sonar.jdbc.username=
+#sonar.jdbc.password=
+```
+
+```
+Uncomment them and provide the values of PostgreSQL Database username and password:
+#--------------------------------------------------------------------------------------------------
+
+
+# DATABASE
+
+
+#
+
+
+# IMPORTANT:
+
+
+# - The embedded H2 database is used by default. It is recommended for tests but not for
+
+
+#   production use. Supported databases are Oracle, PostgreSQL and Microsoft SQLServer.
+
+
+# - Changes to database connection URL (sonar.jdbc.url) can affect SonarSource licensed products.
+
+
+# User credentials.
+
+
+# Permissions to create tables, indices and triggers must be granted to JDBC user.
+
+
+# The schema must be created first.
+
+
+sonar.jdbc.username=sonar
+sonar.jdbc.password=sonar
+sonar.jdbc.url=jdbc:postgresql://localhost:5432/sonarqube
+```
+
+
