@@ -1037,5 +1037,20 @@ In Jenkins, install SonarScanner plugin
 - Navigate to configure system in Jenkins. Add SonarQube server as shown below:
 - Manage Jenkins > Configure System
 
+![alt text](images/sonarjenkins.png)
+
+- Generate authentication token in SonarQube
+User > My Account > Security > Generate Tokens
+![alt text](<images/sonar key.png>)
 
 
+- Configure Quality Gate Jenkins Webhook in SonarQube – The URL should point to your Jenkins server http://{JENKINS_HOST}/sonarqube-webhook/
+Administration > Configuration > Webhooks > Create
+
+![alt text](<images/soanr webhook.png>)
+- Setup SonarQube scanner from Jenkins – Global Tool Configuration
+`Manage Jenkins > Global Tool Configuration`
+![alt text](images/soanrscanner.png)
+
+- Update Jenkins Pipeline to include SonarQube scanning and Quality Gate
+Below is the snippet for a Quality Gate stage in Jenkinsfile.
