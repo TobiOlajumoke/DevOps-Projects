@@ -1054,6 +1054,19 @@ Administration > Configuration > Webhooks > Create
 
 - Update Jenkins Pipeline to include SonarQube scanning and Quality Gate
 Below is the snippet for a Quality Gate stage in Jenkinsfile.
+Below is the snippet for a Quality Gate stage in Jenkinsfile.
+```
+    stage('SonarQube Quality Gate') {
+        environment {
+            scannerHome = tool 'SonarQubeScanner'
+        }
+        steps {
+            withSonarQubeEnv('sonarqube') {
+                sh "${scannerHome}/bin/sonar-scanner"
+            }
 
-g
+
+        }
+    }
+```
 
