@@ -1070,3 +1070,30 @@ Below is the snippet for a Quality Gate stage in Jenkinsfile.
     }
 ```
 
+NOTE: The above step will fail because we have not updated `sonar-scanner.properties
+
+- Configure sonar-scanner.properties – From the step above, Jenkins will install the scanner tool on the Linux server. You will need to go into the tools directory on the server to configure the properties file in which SonarQube will require to function during pipeline execution.
+```
+cd /var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarQubeScanner/conf/
+```
+Open sonar-scanner.properties file
+```
+sudo vi sonar-scanner.properties
+```
+
+
+Add configuration related to php-todo project
+```
+sonar.host.url=http://<SonarQube-Server-IP-address>:9000
+sonar.projectKey=php-todo
+#----- Default source code encoding
+sonar.sourceEncoding=UTF-8
+sonar.php.exclusions=**/vendor/**
+sonar.php.coverage.reportPaths=build/logs/clover.xml
+sonar.php.tests.reportPath=build/logs/junit.xml
+```
+*HINT*: To know what exactly to put inside the sonar-scanner.properties file, SonarQube has a configurations page where you can get some directions.
+
+
+![alt text](<images/sonnar admin php.png>)
+
