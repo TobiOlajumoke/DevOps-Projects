@@ -1136,4 +1136,3 @@ End-to-End Pipeline Overview
 Indeed, this has been one of the longest projects from Project 1, and if everything has worked out for you so far, you should have a view like below:
 
 ![alt text](<images/end to end.png>)
-
