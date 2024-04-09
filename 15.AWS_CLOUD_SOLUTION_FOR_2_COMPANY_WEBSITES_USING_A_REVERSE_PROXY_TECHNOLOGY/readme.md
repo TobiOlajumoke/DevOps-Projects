@@ -10,3 +10,30 @@ Cost, Security, and Scalability are the major requirements for this project. Hen
 
 ![alt text](<images/architexture daigram.png>)
 
+## Starting Off Your AWS Cloud Project
+
+There are few requirements that must be met before you begin:
+1. Properly configure your AWS account and Organization Unit Watch How To Do This Here
+- Create an AWS Master account. (Also known as Root Account)
+- Within the Root account, create a sub-account and name it DevOps. (You will need another email address to complete this)
+- Within the Root account, create an AWS Organization Unit (OU). Name it Dev. (We will launch Dev resources in there)
+- Move the DevOps account into the Dev OU.
+- Login to the newly created AWS account using the new email address.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
