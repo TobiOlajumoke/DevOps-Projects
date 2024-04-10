@@ -21,6 +21,7 @@ There are few requirements that must be met before you begin:
 - Login to the newly created AWS account using the new email address.
 
 
+2. Create a free domain name for your fictitious company at Freenom domain registrar here.
 
 
 
