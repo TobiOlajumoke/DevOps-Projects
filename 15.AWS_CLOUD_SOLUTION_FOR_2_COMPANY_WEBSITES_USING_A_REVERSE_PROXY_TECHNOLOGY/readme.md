@@ -24,6 +24,7 @@ There are few requirements that must be met before you begin:
 2. Create a free domain name for your fictitious company at Freenom domain registrar here.
 
 
+3. Create a hosted zone in AWS, and map it to your free domain from Freenom. Watch how to do that here
 
 
 
