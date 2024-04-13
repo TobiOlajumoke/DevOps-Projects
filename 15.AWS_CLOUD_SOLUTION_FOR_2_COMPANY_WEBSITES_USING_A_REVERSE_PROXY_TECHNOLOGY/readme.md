@@ -33,7 +33,8 @@ There are few requirements that must be met before you begin:
 - Project: <Give your project a name>
 
 
-
+- Environment: <dev>
+- Automated: <No> (If you create a recource using an automation tool, it would be <Yes>)
 
 
 
