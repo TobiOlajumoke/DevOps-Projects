@@ -236,12 +236,12 @@ CustomLog ${APACHE_LOG_DIR}/access.log combined
 - Our new website is now active, but the web root /var/www/projectlamp is still empty. Lets create an index.html file in that location so that we can test that the virtual host works as expected:
 
 
-### Fetch the IMDSv2 token
+- Fetch the IMDSv2 token
 ```bash
 TOKEN=$(curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
 ```
 
-### Fetch the metadata using the token
+- Fetch the metadata using the token
 ```bash
 PUBLIC_HOSTNAME=$(curl -H "X-aws-ec2-metadata-token: $TOKEN" -s http://169.254.169.254/latest/meta-data/public-hostname)
 ```
@@ -250,7 +250,7 @@ PUBLIC_HOSTNAME=$(curl -H "X-aws-ec2-metadata-token: $TOKEN" -s http://169.254.1
 PUBLIC_IPV4=$(curl -H "X-aws-ec2-metadata-token: $TOKEN" -s http://169.254.169.254/latest/meta-data/public-ipv4)
 ```
 
-### Write to the HTML file with sudo permissions
+- Write to the HTML file with sudo permissions
 
 ```bash
 echo "Hello LAMP from hostname $PUBLIC_HOSTNAME with public IP $PUBLIC_IPV4" | sudo tee /var/www/projectlamp/index.html
